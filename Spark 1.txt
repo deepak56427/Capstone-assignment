@@ -1,0 +1,716 @@
+rajadeepak@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb -u root -p --table listings
+Command 'sqoop' not found, did you mean:
+  command 'sqop' from deb sqop (0.26.1-2ubuntu0.22.04.1)
+Try: sudo apt install <deb name>
+rajadeepak@LAPTOP-DJD8S3GA:~$ sqoop importrajadeepak@LAPTOP-DJD8S3GA:~$ sqoop import connect jdbc:mysql://localhost/airbnb -u root -p --table listings --hive-import --hive-table listings -m 1
+Command 'sqoop' not found, did you mean:
+  command 'sqop' from deb sqop (0.26.1-2ubuntu0.22.04.1)
+Try: sudo apt install <deb name>
+rajadeepak@LAPTOP-DJD8S3GA:~$ sudo su hadoop
+[sudo] password for rajadeepak:
+hadoop@LAPTOP-DJD8S3GA:/home/rajadeepak$ cd ..
+hadoop@LAPTOP-DJD8S3GA:/home$ cd ..
+hadoop@LAPTOP-DJD8S3GA:/$ sqoop import connect jdbc:mysql://localhost/airbnb -u root -p --table listings --hive-import --hive-table listings -m 1
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-22 18:03:48,945 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Error parsing arguments for import:
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: connect
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: jdbc:mysql://localhost/airbnb
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: -u
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: root
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: -p
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: --table
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: listings
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: --hive-import
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: --hive-table
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: listings
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: -m
+2023-09-22 18:03:49,007 ERROR tool.BaseSqoopTool: Unrecognized argument: 1
+
+Try --help for usage instructions.
+hadoop@LAPTOP-DJD8S3GA:/$ sqoop import connect jdbc:mysql://localhost/airbnb --u root --p --table listings --hive-import --hive-table listings -m 1
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-22 18:14:06,126 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Error parsing arguments for import:
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: connect
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: jdbc:mysql://localhost/airbnb
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: --u
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: root
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: --p
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: --table
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: listings
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: --hive-import
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: --hive-table
+2023-09-22 18:14:06,188 ERROR tool.BaseSqoopTool: Unrecognized argument: listings
+2023-09-22 18:14:06,189 ERROR tool.BaseSqoopTool: Unrecognized argument: -m
+2023-09-22 18:14:06,189 ERROR tool.BaseSqoopTool: Unrecognized argument: 1
+
+Try --help for usage instructions.
+hadoop@LAPTOP-DJD8S3GA:/$ ls
+bin  boot  dev  etc  home  init  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+hadoop@LAPTOP-DJD8S3GA:/$ cd bin
+hadoop@LAPTOP-DJD8S3GA:/bin$ ls
+ NF                                   getkeycodes                        mysqlshow                   splain
+ X11                                  getopt                             mysqlslap                   split
+'['                                   gettext                            namei                       splitfont
+ aa-enabled                           gettext.sh                         nano                        sqfscat
+ aa-exec                              ginstall-info                      native2ascii                sqfstar
+ aa-features-abi                      gio                                nawk                        ss
+ add-apt-repository                   gio-querymodules                   nc                          ssh
+ addpart                              git                                nc.openbsd                  ssh-add
+ addr2line                            git-receive-pack                   neqn                        ssh-agent
+ appletviewer                         git-shell                          netcat                      ssh-argv0
+ apport-bug                           git-upload-archive                 networkctl                  ssh-copy-id
+ apport-cli                           git-upload-pack                    networkd-dispatcher         ssh-import-id
+ apport-collect                       glib-compile-schemas               newgrp                      ssh-import-id-gh
+ apport-unpack                        gold                               ngettext                    ssh-import-id-lp
+ appres                               gpasswd                            nice                        ssh-keygen
+ apropos                              gpg                                nisdomainname               ssh-keyscan
+ apt                                  gpg-agent                          nl                          stat
+ apt-add-repository                   gpg-connect-agent                  nm                          static-sh
+ apt-cache                            gpg-wks-server                     nohup                       stdbuf
+ apt-cdrom                            gpg-zip                            nproc                       strace
+ apt-config                           gpgcompose                         nroff                       strace-log-merge
+ apt-extracttemplates                 gpgconf                            nsenter                     streamzip
+ apt-ftparchive                       gpgparsemail                       nslookup                    strings
+ apt-get                              gpgsm                              nstat                       strip
+ apt-key                              gpgsplit                           nsupdate                    stty
+ apt-mark                             gpgtar                             ntfs-3g                     su
+ apt-sortpkgs                         gpgv                               ntfs-3g.probe               sudo
+ ar                                   gpic                               ntfscat                     sudoedit
+ arch                                 gprof                              ntfscluster                 sudoreplay
+ as                                   grep                               ntfscmp                     sum
+ awk                                  gresource                          ntfsdecrypt                 sync
+ b2sum                                groff                              ntfsfallocate               systemctl
+ base32                               grog                               ntfsfix                     systemd
+ base64                               grops                              ntfsinfo                    systemd-analyze
+ basename                             grotty                             ntfsls                      systemd-ask-password
+ basenc                               groups                             ntfsmove                    systemd-cat
+ bash                                 gsettings                          ntfsrecover                 systemd-cgls
+ bashbug                              gtbl                               ntfssecaudit                systemd-cgtop
+ bootctl                              gtk-update-icon-cache              ntfstruncate                systemd-cryptenroll
+ busctl                               gunzip                             ntfsusermap                 systemd-delta
+ busybox                              gzexe                              ntfswipe                    systemd-detect-virt
+ byobu                                gzip                               numfmt                      systemd-escape
+ byobu-config                         h2ph                               objcopy                     systemd-hwdb
+ byobu-ctrl-a                         h2xs                               objdump                     systemd-id128
+ byobu-disable                        hardlink                           od                          systemd-inhibit
+ byobu-disable-prompt                 hd                                 oem-getlogs                 systemd-machine-id-setup
+ byobu-enable                         head                               on_ac_power                 systemd-mount
+ byobu-enable-prompt                  helpztags                          openssl                     systemd-notify
+ byobu-export                         hexdump                            openvt                      systemd-path
+ byobu-janitor                        host                               orbd                        systemd-run
+ byobu-keybindings                    hostid                             pack200                     systemd-socket-activate
+ byobu-launch                         hostname                           pager                       systemd-stdio-bridge
+ byobu-launcher                       hostnamectl                        partx                       systemd-sysext
+ byobu-launcher-install               hsdb                               passwd                      systemd-sysusers
+ byobu-launcher-uninstall             htop                               paste                       systemd-tmpfiles
+ byobu-layout                         hwe-support-status                 pastebinit                  systemd-tty-ask-password-agent
+ byobu-prompt                         i386                               patch                       systemd-umount
+ byobu-quiet                          ibd2sdi                            pathchk                     tabs
+ byobu-reconnect-sockets              iconv                              pbget                       tac
+ byobu-screen                         id                                 pbput                       tail
+ byobu-select-backend                 idlj                               pbputs                      tar
+ byobu-select-profile                 info                               pdb3                        taskset
+ byobu-select-session                 infobrowser                        pdb3.10                     tbl
+ byobu-shell                          infocmp                            peekfd                      tcpdump
+ byobu-silent                         infotocap                          perl                        tee
+ byobu-status                         innochecksum                       perl5.34-x86_64-linux-gnu   telnet
+ byobu-status-detail                  install                            perl5.34.0                  telnet.netkit
+ byobu-tmux                           install-info                       perlbug                     tempfile
+ byobu-ugraph                         instmodsh                          perldoc                     test
+ byobu-ulevel                         ionice                             perlivp                     tic
+ c++filt                              ip                                 perlthanks                  time
+ c_rehash                             ipcmk                              perror                      timedatectl
+ captoinfo                            ipcrm                              pgrep                       timeout
+ cat                                  ipcs                               pic                         tload
+ catman                               iptables-xml                       pico                        tmux
+ cgi-fcgi                             ischroot                           piconv                      tnameserv
+ chage                                jar                                pidof                       tnftp
+ chattr                               jarsigner                          pidwait                     toe
+ chcon                                java                               pinentry                    top
+ chfn                                 javac                              pinentry-curses             touch
+ chgrp                                javadoc                            ping                        tput
+ chmod                                javah                              ping4                       tr
+ choom                                javap                              ping6                       tracepath
+ chown                                jcmd                               pinky                       troff
+ chrt                                 jconsole                           pkaction                    true
+ chsh                                 jdb                                pkcheck                     truncate
+ chvt                                 jdeps                              pkcon                       tset
+ ckbcomp                              jexec                              pkexec                      tsort
+ cksum                                jfr                                pkill                       tty
+ clear                                jhat                               pkmon                       tzselect
+ clear_console                        jinfo                              pkttyagent                  ua
+ clhsdb                               jjs                                pl2pm                       ubuntu-advantage
+ cmp                                  jmap                               pldd                        ubuntu-bug
+ codepage                             join                               plymouth                    ubuntu-core-launcher
+ col                                  journalctl                         pmap                        ubuntu-distro-info
+ col1                                 jps                                pod2html                    ubuntu-security-status
+ col2                                 jrunscript                         pod2man                     ucf
+ col3                                 jsadebugd                          pod2text                    ucfq
+ col4                                 json_pp                            pod2usage                   ucfr
+ col5                                 jstack                             podchecker                  uclampset
+ col6                                 jstat                              policytool                  udevadm
+ col7                                 jstatd                             pr                          ul
+ col8                                 kbd_mode                           preconv                     umount
+ col9                                 kbdinfo                            printenv                    uname
+ colcrt                               kbxutil                            printf                      unattended-upgrade
+ colrm                                keep-one-running                   prlimit                     unattended-upgrades
+ column                               kernel-install                     pro                         uncompress
+ comm                                 keyring                            prove                       unexpand
+ corelist                             keytool                            prtstat                     unicode_start
+ cp                                   kill                               ps                          unicode_stop
+ cpan                                 killall                            psfaddtable                 uniq
+ cpan5.34-x86_64-linux-gnu            kmod                               psfgettable                 unlink
+ cpio                                 last                               psfstriptable               unlzma
+ crontab                              lastb                              psfxtable                   unpack200
+ csplit                               lastlog                            pslog                       unshare
+ ctail                                lcf                                pstree                      unsquashfs
+ ctstat                               ld                                 pstree.x11                  unxz
+ curl                                 ld.bfd                             ptar                        update-alternatives
+ cut                                  ld.gold                            ptardiff                    update-mime-database
+ cvtsudoers                           ldd                                ptargrep                    uptime
+ dash                                 less                               ptx                         usb-devices
+ date                                 lessecho                           purge-old-kernels           usbhid-dump
+ dbus-cleanup-sockets                 lessfile                           pwd                         usbreset
+ dbus-daemon                          lesskey                            pwdx                        users
+ dbus-launch                          lesspipe                           py3clean                    utmpdump
+ dbus-monitor                         lexgrog                            py3compile                  uuidgen
+ dbus-run-session                     libnetcfg                          py3versions                 uuidparse
+ dbus-send                            link                               pydoc3                      vdir
+ dbus-update-activation-environment   linux32                            pydoc3.10                   vi
+ dbus-uuidgen                         linux64                            pygettext3                  view
+ dd                                   listres                            pygettext3.10               viewres
+ deallocvt                            ln                                 python3                     vigpg
+ deb-systemd-helper                   lnstat                             python3.10                  vim
+ deb-systemd-invoke                   loadkeys                           ranlib                      vim.basic
+ debconf                              loadunimap                         rbash                       vim.tiny
+ debconf-apt-progress                 locale                             rcp                         vimdiff
+ debconf-communicate                  locale-check                       rdma                        vimtutor
+ debconf-copydb                       localectl                          readelf                     vmstat
+ debconf-escape                       localedef                          readlink                    w
+ debconf-set-selections               logger                             realpath                    wall
+ debconf-show                         login                              red                         watch
+ debian-distro-info                   loginctl                           renice                      watchgnupg
+ delpart                              logname                            reset                       wc
+ delv                                 look                               resizecons                  wdctl
+ df                                   lowntfs-3g                         resizepart                  wget
+ dh_bash-completion                   ls                                 resolvectl                  whatis
+ diff                                 lsattr                             rev                         whereis
+ diff3                                lsb_release                        rgrep                       which
+ dig                                  lsblk                              rlogin                      which.debianutils
+ dir                                  lscpu                              rm                          whiptail
+ dircolors                            lshw                               rmdir                       who
+ dirmngr                              lsipc                              rmic                        whoami
+ dirmngr-client                       lslocks                            rmid                        wifi-status
+ dirname                              lslogins                           rmiregistry                 write
+ distro-info                          lsmem                              rnano                       write.ul
+ dmesg                                lsmod                              routef                      wsgen
+ dnsdomainname                        lsns                               routel                      wsimport
+ do-release-upgrade                   lsof                               rrsync                      wslpath
+ domainname                           lspci                              rsh                         x86_64
+ dpkg                                 lspgpot                            rsync                       x86_64-linux-gnu-addr2line
+ dpkg-deb                             lsusb                              rsync-ssl                   x86_64-linux-gnu-ar
+ dpkg-divert                          luit                               rtstat                      x86_64-linux-gnu-as
+ dpkg-maintscript-helper              lzcat                              run-one                     x86_64-linux-gnu-c++filt
+ dpkg-query                           lzcmp                              run-one-constantly          x86_64-linux-gnu-dwp
+ dpkg-realpath                        lzdiff                             run-one-until-failure       x86_64-linux-gnu-elfedit
+ dpkg-split                           lzegrep                            run-one-until-success       x86_64-linux-gnu-gold
+ dpkg-statoverride                    lzfgrep                            run-parts                   x86_64-linux-gnu-gprof
+ dpkg-trigger                         lzgrep                             run-this-one                x86_64-linux-gnu-ld
+ du                                   lzless                             runcon                      x86_64-linux-gnu-ld.bfd
+ dumpkeys                             lzma                               rview                       x86_64-linux-gnu-ld.gold
+ dwp                                  lzmainfo                           rvim                        x86_64-linux-gnu-nm
+ echo                                 lzmore                             savelog                     x86_64-linux-gnu-objcopy
+ ed                                   man                                schemagen                   x86_64-linux-gnu-objdump
+ editor                               man-recode                         scp                         x86_64-linux-gnu-ranlib
+ editres                              mandb                              screen                      x86_64-linux-gnu-readelf
+ egrep                                manifest                           screendump                  x86_64-linux-gnu-size
+ eject                                manpath                            script                      x86_64-linux-gnu-strings
+ elfedit                              mapscrn                            scriptlive                  x86_64-linux-gnu-strip
+ enc2xs                               mawk                               scriptreplay                xargs
+ encguess                             mcookie                            sdiff                       xauth
+ env                                  md5sum                             sed                         xdg-user-dir
+ envsubst                             md5sum.textutils                   select-editor               xdg-user-dirs-update
+ eqn                                  mdig                               sensible-browser            xdpyinfo
+ ex                                   mesg                               sensible-editor             xdriinfo
+ expand                               migrate-pubring-from-classic-gpg   sensible-pager              xev
+ expiry                               mk_modmap                          seq                         xfd
+ expr                                 mkdir                              serialver                   xfontsel
+ extcheck                             mkfifo                             servertool                  xjc
+ factor                               mknod                              session-migration           xkill
+ faillog                              mksquashfs                         setarch                     xlsatoms
+ fallocate                            mktemp                             setfont                     xlsclients
+ false                                more                               setkeycodes                 xlsfonts
+ fc-cache                             mount                              setleds                     xmessage
+ fc-cat                               mountpoint                         setlogcons                  xprop
+ fc-conflist                          mt                                 setmetamode                 xsubpp
+ fc-list                              mt-gnu                             setpci                      xvinfo
+ fc-match                             mtr                                setpriv                     xwininfo
+ fc-pattern                           mtr-packet                         setsid                      xxd
+ fc-query                             mv                                 setterm                     xz
+ fc-scan                              my_print_defaults                  setupcon                    xzcat
+ fc-validate                          myisam_ftdump                      sftp                        xzcmp
+ fgconsole                            myisamchk                          sg                          xzdiff
+ fgrep                                myisamlog                          sh                          xzegrep
+ file                                 myisampack                         sha1sum                     xzfgrep
+ fincore                              mysql                              sha224sum                   xzgrep
+ find                                 mysql_config_editor                sha256sum                   xzless
+ findmnt                              mysql_migrate_keyring              sha384sum                   xzmore
+ flock                                mysql_secure_installation          sha512sum                   yes
+ fmt                                  mysql_ssl_rsa_setup                shasum                      ypdomainname
+ fold                                 mysql_tzinfo_to_sql                showconsolefont             zcat
+ free                                 mysql_upgrade                      showkey                     zcmp
+ ftp                                  mysqladmin                         shred                       zdiff
+ fuser                                mysqlanalyze                       shuf                        zdump
+ fusermount                           mysqlbinlog                        size                        zegrep
+ fusermount3                          mysqlcheck                         skill                       zfgrep
+ gapplication                         mysqld_multi                       slabtop                     zforce
+ gawk                                 mysqld_safe                        sleep                       zgrep
+ gdbus                                mysqldump                          slogin                      zipdetails
+ gdk-pixbuf-csource                   mysqldumpslow                      snap                        zless
+ gdk-pixbuf-pixdata                   mysqlimport                        snapctl                     zmore
+ gdk-pixbuf-thumbnailer               mysqloptimize                      snapfuse                    znew
+ geqn                                 mysqlpump                          snice
+ getconf                              mysqlrepair                        soelim
+ getent                               mysqlreport                        sort
+hadoop@LAPTOP-DJD8S3GA:/bin$ cd ..
+hadoop@LAPTOP-DJD8S3GA:/$
+exit
+rajadeepak@LAPTOP-DJD8S3GA:~$ ls
+rajadeepak@LAPTOP-DJD8S3GA:~$ sudo su hadoop
+[sudo] password for rajadeepak:
+hadoop@LAPTOP-DJD8S3GA:/home/rajadeepak$ cd ..
+hadoop@LAPTOP-DJD8S3GA:/home$ ls
+hadoop  rajadeepak
+hadoop@LAPTOP-DJD8S3GA:/home$ cd ..
+hadoop@LAPTOP-DJD8S3GA:/$ cd hadoop
+bash: cd: hadoop: No such file or directory
+hadoop@LAPTOP-DJD8S3GA:/$ cd /home/hadoop
+hadoop@LAPTOP-DJD8S3GA:~$ ls
+apache-hive-3.1.2-bin.tar.gz  hadoopdata                   mysql-connector-java-8.0.27.tar.gz  sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+derby.log                     hive                         spark
+hadoop                        metastore_db                 spark-3.4.0-bin-hadoop3.tgz
+hadoop-3.3.2.tar.gz           mysql-connector-java-8.0.27  sqoop
+hadoop@LAPTOP-DJD8S3GA:~$ wget mysql-connector-java-5.1.28.jar
+--2023-09-22 18:23:20--  http://mysql-connector-java-5.1.28.jar/
+Resolving mysql-connector-java-5.1.28.jar (mysql-connector-java-5.1.28.jar)... failed: Name or service not known.
+wget: unable to resolve host address ‘mysql-connector-java-5.1.28.jar’
+hadoop@LAPTOP-DJD8S3GA:~$ wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.28/mysql-connector-java-5.1.28.jar
+--2023-09-22 18:27:21--  https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.28/mysql-connector-java-5.1.28.jar
+Resolving repo1.maven.org (repo1.maven.org)... 23.235.32.32, 104.156.80.32, 23.235.36.32, ...
+Connecting to repo1.maven.org (repo1.maven.org)|23.235.32.32|:443... failed: Connection timed out.
+Connecting to repo1.maven.org (repo1.maven.org)|104.156.80.32|:443... failed: Connection timed out.
+Connecting to repo1.maven.org (repo1.maven.org)|23.235.36.32|:443... failed: Connection timed out.
+Connecting to repo1.maven.org (repo1.maven.org)|104.156.84.32|:443... failed: Connection timed out.
+Connecting to repo1.maven.org (repo1.maven.org)|199.232.168.209|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 875336 (855K) [application/java-archive]
+Saving to: ‘mysql-connector-java-5.1.28.jar’
+
+mysql-connector-java-5.1.28.jar     100%[===================================================================>] 854.82K  30.8KB/s    in 14s
+
+2023-09-22 18:36:24 (62.5 KB/s) - ‘mysql-connector-java-5.1.28.jar’ saved [875336/875336]
+
+hadoop@LAPTOP-DJD8S3GA:~$ ls
+apache-hive-3.1.2-bin.tar.gz  hadoopdata                       mysql-connector-java-8.0.27         sqoop
+derby.log                     hive                             mysql-connector-java-8.0.27.tar.gz  sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+hadoop                        metastore_db                     spark
+hadoop-3.3.2.tar.gz           mysql-connector-java-5.1.28.jar  spark-3.4.0-bin-hadoop3.tgz
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop fs -ls
+ls: `.': No such file or directory
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop -fs ls
+/home/hadoop/hadoop/libexec/hadoop-functions.sh: line 2386: HADOOP_-FS_USER: invalid variable name
+ERROR: -fs is not COMMAND nor fully qualified CLASSNAME.
+Usage: hadoop [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    hadoop [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir                     Hadoop config directory
+--debug                          turn on shell script debug mode
+--help                           usage information
+buildpaths                       attempt to add class files from build tree
+hostnames list[,of,host,names]   hosts to use in slave mode
+hosts filename                   list of hosts to use in slave mode
+loglevel level                   set the log4j level for this command
+workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+daemonlog     get/set the log level for each daemon
+
+    Client Commands:
+
+archive       create a Hadoop archive
+checknative   check native Hadoop and compression libraries availability
+classpath     prints the class path needed to get the Hadoop jar and the required libraries
+conftest      validate configuration XML files
+credential    interact with credential providers
+distch        distributed metadata changer
+distcp        copy file or directories recursively
+dtutil        operations related to delegation tokens
+envvars       display computed Hadoop environment variables
+fs            run a generic filesystem user client
+gridmix       submit a mix of synthetic job, modeling a profiled from production load
+jar <jar>     run a jar file. NOTE: please use "yarn jar" to launch YARN applications, not this command.
+jnipath       prints the java.library.path
+kdiag         Diagnose Kerberos Problems
+kerbname      show auth_to_local principal conversion
+key           manage keys via the KeyProvider
+rumenfolder   scale a rumen input trace
+rumentrace    convert logs into a rumen trace
+s3guard       manage metadata on S3
+trace         view and modify Hadoop tracing settings
+version       print the version
+
+    Daemon Commands:
+
+kms           run KMS, the Key Management Server
+registrydns   run the registry DNS server
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop fs ls
+ls: Unknown command
+Did you mean -ls?  This command begins with a dash.
+Usage: hadoop fs [generic options]
+        [-appendToFile <localsrc> ... <dst>]
+        [-cat [-ignoreCrc] <src> ...]
+        [-checksum [-v] <src> ...]
+        [-chgrp [-R] GROUP PATH...]
+        [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+        [-chown [-R] [OWNER][:[GROUP]] PATH...]
+        [-concat <target path> <src path> <src path> ...]
+        [-copyFromLocal [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+        [-copyToLocal [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+        [-count [-q] [-h] [-v] [-t [<storage type>]] [-u] [-x] [-e] [-s] <path> ...]
+        [-cp [-f] [-p | -p[topax]] [-d] [-t <thread count>] [-q <thread pool queue size>] <src> ... <dst>]
+        [-createSnapshot <snapshotDir> [<snapshotName>]]
+        [-deleteSnapshot <snapshotDir> <snapshotName>]
+        [-df [-h] [<path> ...]]
+        [-du [-s] [-h] [-v] [-x] <path> ...]
+        [-expunge [-immediate] [-fs <path>]]
+        [-find <path> ... <expression> ...]
+        [-get [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+        [-getfacl [-R] <path>]
+        [-getfattr [-R] {-n name | -d} [-e en] <path>]
+        [-getmerge [-nl] [-skip-empty-file] <src> <localdst>]
+        [-head <file>]
+        [-help [cmd ...]]
+        [-ls [-C] [-d] [-h] [-q] [-R] [-t] [-S] [-r] [-u] [-e] [<path> ...]]
+        [-mkdir [-p] <path> ...]
+        [-moveFromLocal [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+        [-moveToLocal <src> <localdst>]
+        [-mv <src> ... <dst>]
+        [-put [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+        [-renameSnapshot <snapshotDir> <oldName> <newName>]
+        [-rm [-f] [-r|-R] [-skipTrash] [-safely] <src> ...]
+        [-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+        [-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+        [-setfattr {-n name [-v value] | -x name} <path>]
+        [-setrep [-R] [-w] <rep> <path> ...]
+        [-stat [format] <path> ...]
+        [-tail [-f] [-s <sleep interval>] <file>]
+        [-test -[defswrz] <path>]
+        [-text [-ignoreCrc] <src> ...]
+        [-touch [-a] [-m] [-t TIMESTAMP (yyyyMMdd:HHmmss) ] [-c] <path> ...]
+        [-touchz <path> ...]
+        [-truncate [-w] <length> <path> ...]
+        [-usage [cmd ...]]
+
+Generic options supported are:
+-conf <configuration file>        specify an application configuration file
+-D <property=value>               define a value for a given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>  specify a ResourceManager
+-files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
+-libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
+-archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+
+The general command line syntax is:
+command [genericOptions] [commandOptions]
+
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop fs -ls
+ls: `.': No such file or directory
+hadoop@LAPTOP-DJD8S3GA:~$ ls
+apache-hive-3.1.2-bin.tar.gz  hadoopdata                       mysql-connector-java-8.0.27         sqoop
+derby.log                     hive                             mysql-connector-java-8.0.27.tar.gz  sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+hadoop                        metastore_db                     spark
+hadoop-3.3.2.tar.gz           mysql-connector-java-5.1.28.jar  spark-3.4.0-bin-hadoop3.tgz
+hadoop@LAPTOP-DJD8S3GA:~$ cp mysql-connector-java-5.1.28.jar $SQOOP_HOME/lib
+hadoop@LAPTOP-DJD8S3GA:~$ cp mysql-connector-java-5.1.28.jar $SQOOP_HOME/lib/
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import connect jdbc:mysql://localhost/airbnb --u root --p --table listings --hive-import --hive-table listings -m 1
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-22 18:40:57,504 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Error parsing arguments for import:
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: connect
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: jdbc:mysql://localhost/airbnb
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: --u
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: root
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: --p
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: --table
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: listings
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: --hive-import
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: --hive-table
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: listings
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: -m
+2023-09-22 18:40:57,542 ERROR tool.BaseSqoopTool: Unrecognized argument: 1
+
+Try --help for usage instructions.
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --table listings --fields-terminated-by '\t' --username root -P
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-22 18:43:43,760 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+Enter password:
+2023-09-22 18:43:52,413 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-22 18:43:52,413 INFO tool.CodeGenTool: Beginning code generation
+2023-09-22 18:43:53,261 ERROR manager.SqlManager: Error executing statement: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+        at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+        at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+        at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
+        at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+        at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+        at java.sql.DriverManager.getConnection(DriverManager.java:664)
+        at java.sql.DriverManager.getConnection(DriverManager.java:247)
+        at org.apache.sqoop.manager.SqlManager.makeConnection(SqlManager.java:904)
+        at org.apache.sqoop.manager.GenericJdbcManager.getConnection(GenericJdbcManager.java:59)
+        at org.apache.sqoop.manager.SqlManager.execute(SqlManager.java:763)
+        at org.apache.sqoop.manager.SqlManager.execute(SqlManager.java:786)
+        at org.apache.sqoop.manager.SqlManager.getColumnInfoForRawQuery(SqlManager.java:289)
+        at org.apache.sqoop.manager.SqlManager.getColumnTypesForRawQuery(SqlManager.java:260)
+        at org.apache.sqoop.manager.SqlManager.getColumnTypes(SqlManager.java:246)
+        at org.apache.sqoop.manager.ConnManager.getColumnTypes(ConnManager.java:327)
+        at org.apache.sqoop.orm.ClassWriter.getColumnTypes(ClassWriter.java:1872)
+        at org.apache.sqoop.orm.ClassWriter.generate(ClassWriter.java:1671)
+        at org.apache.sqoop.tool.CodeGenTool.generateORM(CodeGenTool.java:106)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:501)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+2023-09-22 18:43:53,264 ERROR tool.ImportTool: Import failed: java.io.IOException: No columns to generate for ClassWriter
+        at org.apache.sqoop.orm.ClassWriter.generate(ClassWriter.java:1677)
+        at org.apache.sqoop.tool.CodeGenTool.generateORM(CodeGenTool.java:106)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:501)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --table listings --fields-terminated-by '\t' --username root -P
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-22 18:44:25,697 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+Enter password:
+2023-09-22 18:44:29,669 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-22 18:44:29,670 INFO tool.CodeGenTool: Beginning code generation
+2023-09-22 18:44:30,133 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-22 18:44:30,308 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-22 18:44:30,320 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/22bba821fc178e45f3ced8be70d1f038/listings.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-22 18:44:34,327 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/22bba821fc178e45f3ced8be70d1f038/listings.jar
+2023-09-22 18:44:34,351 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-22 18:44:34,351 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-22 18:44:34,351 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-22 18:44:34,352 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-22 18:44:34,608 ERROR tool.ImportTool: Import failed: No primary key could be found for table listings. Please specify one with --split-by or perform a sequential import with '-m 1'.
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --table listings --fields-terminated-by '\t' --username root -P
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-22 19:23:20,992 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+Enter password:
+2023-09-22 19:23:28,087 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-22 19:23:28,087 INFO tool.CodeGenTool: Beginning code generation
+2023-09-22 19:23:29,073 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-22 19:23:29,178 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-22 19:23:29,195 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/56af4a2e4fcf8ea9cb4f7498b6bf9c6f/listings.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-22 19:23:32,815 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/56af4a2e4fcf8ea9cb4f7498b6bf9c6f/listings.jar
+2023-09-22 19:23:33,435 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-22 19:23:33,435 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-22 19:23:33,435 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-22 19:23:33,435 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-22 19:23:33,451 INFO mapreduce.ImportJobBase: Beginning import of listings
+2023-09-22 19:23:33,452 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-22 19:23:33,733 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-22 19:23:35,732 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-22 19:23:36,207 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-22 19:23:40,755 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695366619041_0001
+2023-09-22 19:23:50,011 INFO db.DBInputFormat: Using read commited transaction isolation
+2023-09-22 19:23:50,012 INFO db.DataDrivenDBInputFormat: BoundingValsQuery: SELECT MIN(`id`), MAX(`id`) FROM `listings`
+2023-09-22 19:23:50,025 INFO db.IntegerSplitter: Split size: 2584207; Num splits: 4 from: 3335 to: 10340165
+2023-09-22 19:23:50,101 INFO mapreduce.JobSubmitter: number of splits:4
+2023-09-22 19:23:50,422 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1695366619041_0001
+2023-09-22 19:23:50,422 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2023-09-22 19:23:50,934 INFO conf.Configuration: resource-types.xml not found
+2023-09-22 19:23:50,935 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2023-09-22 19:23:54,194 INFO impl.YarnClientImpl: Submitted application application_1695366619041_0001
+2023-09-22 19:23:54,363 INFO mapreduce.Job: The url to track the job: http://LAPTOP-DJD8S3GA.:8088/proxy/application_1695366619041_0001/
+2023-09-22 19:23:54,365 INFO mapreduce.Job: Running job: job_1695366619041_0001
+2023-09-22 19:24:52,279 INFO retry.RetryInvocationHandler: java.io.EOFException: End of File Exception between local host is: "LAPTOP-DJD8S3GA/127.0.1.1"; destination host is: "0.0.0.0":8032; : java.io.EOFException; For more details see:  http://wiki.apache.org/hadoop/EOFException, while invoking ApplicationClientProtocolPBClientImpl.getApplicationReport over null. Trying to failover immediately.
+2023-09-22 19:24:53,352 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:24:54,358 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:24:55,361 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:24:56,363 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:24:57,367 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:24:58,372 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:24:59,377 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:00,380 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:01,383 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:02,387 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:02,391 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getApplicationReport over null after 1 failover attempts. Trying to failover after sleeping for 31550ms.
+2023-09-22 19:25:34,958 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:35,961 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:36,963 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:37,965 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:38,970 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:39,973 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:40,976 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:41,978 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:42,981 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:43,983 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:25:43,984 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getApplicationReport over null after 2 failover attempts. Trying to failover after sleeping for 17411ms.
+2023-09-22 19:26:02,403 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:03,407 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:04,414 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:05,416 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:06,419 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:07,423 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:08,426 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:09,428 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:10,430 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:11,432 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:11,436 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getApplicationReport over null after 3 failover attempts. Trying to failover after sleeping for 18315ms.
+2023-09-22 19:26:30,760 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:31,765 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:32,770 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:33,772 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:34,776 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:35,780 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:36,784 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:37,785 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:38,791 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:39,794 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:26:39,797 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getApplicationReport over null after 4 failover attempts. Trying to failover after sleeping for 41020ms.
+2023-09-22 19:27:21,837 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:22,844 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:23,851 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:24,859 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:25,867 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:26,874 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:27,879 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:28,881 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:29,885 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:30,888 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-22 19:27:30,893 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getApplicationReport over null after 5 failover attempts. Trying to failover after sleeping for 20602ms.
+
+
+
+^Chadoop@LAPTOP-DJD8S3GA:~$spark
+Command 'spark' not found, did you mean:
+  command 'nspark' from deb nspark (1.7.8B2+git20210317.cb30779-2)
+Try: apt install <deb name>
+hadoop@LAPTOP-DJD8S3GA:~$ nspark
+Command 'nspark' not found, but can be installed with:
+apt install nspark
+Please ask your administrator.
+hadoop@LAPTOP-DJD8S3GA:~$ cd bin
+bash: cd: bin: No such file or directory
+hadoop@LAPTOP-DJD8S3GA:~$ ls
+apache-hive-3.1.2-bin.tar.gz  hadoopdata     mysql-connector-java-5.1.28.jar     spark-3.4.0-bin-hadoop3.tgz
+derby.log                     hive           mysql-connector-java-8.0.27         sqoop
+hadoop                        listings.java  mysql-connector-java-8.0.27.tar.gz  sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+hadoop-3.3.2.tar.gz           metastore_db   spark
+hadoop@LAPTOP-DJD8S3GA:~$ spark-shell
+23/09/22 20:04:24 WARN Utils: Your hostname, LAPTOP-DJD8S3GA resolves to a loopback address: 127.0.1.1; using 172.26.69.159 instead (on interface eth0)
+23/09/22 20:04:24 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+23/09/22 20:04:34 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Spark context Web UI available at http://172.26.69.159:4040
+Spark context available as 'sc' (master = local[*], app id = local-1695393276154).
+Spark session available as 'spark'.
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 3.4.0
+      /_/
+
+Using Scala version 2.12.17 (OpenJDK 64-Bit Server VM, Java 1.8.0_382)
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala> spark.sql("show databases").show()
++---------+
+|namespace|
++---------+
+|  default|
++---------+
+
+
+scala> spark.sql("show databases").show()
++---------+
+|namespace|
++---------+
+|  default|
++---------+
+
+
+scala> spark.sql("show tables").show()
++---------+---------+-----------+
+|namespace|tableName|isTemporary|
++---------+---------+-----------+
+|  default|  process|      false|
