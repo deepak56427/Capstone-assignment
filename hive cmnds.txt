@@ -1,0 +1,54 @@
+hive> select * from listings limit 50;
+OK
+3335    Sweet Seattle Urban     4193    Jessica Dunlap  Rainier Valley  47.5298 -122.276        Entire home/apt 0       2       309     NULL   0
+4291    Sunrise in Seattle M    35749   Jess & Joey     Roosevelt       Other neighborhoods     47.6873 -122.313        Private room    0      365      NULL    10      5       1
+5682    "Cozy Studio    0       8993    Maddy   South Delridge  0.0     47.524  -122.3598906    0       0       3       NULL    297     12     1
+6606    "Fab    0       14942   Joyce   Wallingford     0.0     47.6541 -122.3376053    0       0       2       NULL    52      12      1
+7369    launchingpad/landing    19425   Shireen Broadway        Capitol Hill    47.6154 -122.326        Entire home/apt 0       1       53     NULL     3       1       1
+9419    Golden Sun vintage w    30559   Angielena       Georgetown      Other neighborhoods     47.5506 -122.32 Private room    0       2      365      NULL    12      5       1
+9460    Downtown Convention     30832   Siena   First Hill      Downtown        47.608  -122.329        Private room    0       3       57     NULL     12      2       3
+9531    The Adorable Sweet O    31481   Cassie  The Junction    West Seattle    47.5554 -122.385        Entire home/apt 0       3       180    NULL     12      2       1
+9534    The Coolest Tangerin    31481   Cassie  The Junction    West Seattle    47.5567 -122.385        Entire home/apt 0       2       262    NULL     10      2       0
+9596    "the down home  0       14942   Joyce   Wallingford     0.0     47.6548 -122.3365199    0       0       3       NULL    32      9      1
+10385   Upscale Seattle Hote    35749   Jess & Joey     Maple Leaf      Northgate       47.6957 -122.312        Private room    0       2      365      NULL    10      5       1
+10695   Private 2 Rooms & 1     35749   Jess & Joey     Maple Leaf      Northgate       47.6972 -122.313        Private room    0       2      365      NULL    9       5       0
+11012   "the orange house       0       14942   Joyce   Wallingford     0.0     47.6545 -122.3364643    0       0       3       NULL    47     11       1
+11411   Hotel Room & Bath Al    35749   Jess & Joey     Maple Leaf      Northgate       47.6957 -122.313        Private room    0       2      365      NULL    8       5       1
+13068   THE URBAN OASIS- Gre    50893   Chris   Capitol Hill    Capitol Hill    47.6185 -122.326        Entire home/apt 0       3       344    NULL     12      9       1
+14386   Quiet Cozy Upstairs     39377   Bob     Green Lake      Other neighborhoods     47.6872 -122.335        Private room    0       1      316      NULL    11      3       0
+15108   Green Lake Private G    39377   Bob     Green Lake      Other neighborhoods     47.6883 -122.336        Private room    0       1      306      NULL    11      3       1
+17951   "West Seattle   0       33360   Laura   The Junction    0.0     47.5554 -122.3862226    0       0       2       NULL    21      12     3
+19611   1 Bedroom Downtown S    74305   Darik   Belltown        Downtown        47.6156 -122.346        Entire home/apt 0       2       151    NULL     11      6       0
+19619   1 Bedroom Cosmopolit    74305   Darik   Belltown        Downtown        47.6136 -122.347        Entire home/apt 0       2       137    NULL     5       6       0
+19623   2 Bedroom Downtown S    74305   Darik   Belltown        Downtown        47.6164 -122.346        Entire home/apt 0       2       172    NULL     10      6       1
+20868   2 BR Spacious Mother    35749   Jess & Joey     Maple Leaf      Northgate       47.6954 -122.313        Entire home/apt 0       2      358      NULL    11      5       1
+20927   Cottage in the Heart    79450   Brad & Liz      Ballard Ballard 47.6733 -122.395        Entire home/apt 0       2       341     NULL   12       2       4
+20928   Victorian in the Hea    79450   Brad & Liz      Ballard Ballard 47.6736 -122.394        Entire home/apt 0       2       334     NULL   12       2       6
+23192   "Harrison Modern ""M    90437   Ian     Capitol Hill    Capitol Hill    47.6224 -122.316        Entire home/apt 0       3       340    NULL     8       1       0
+23356   3bd 2bt great bargai    91286   Tonyhai Holly Park      Beacon Hill     47.5343 -122.282        Entire home/apt 0       3       327    NULL     6       1       0
+23430   1 Bedroom Modern Wat    74305   Darik   Belltown        Downtown        47.6142 -122.344        Entire home/apt 0       2       158    NULL     10      6       0
+23919   Luxury Treehouse Gar    95510   Peggy   Windermere      Other neighborhoods     47.6684 -122.27 Entire home/apt 0       3       317    NULL     8       1       0
+24212   2 Bedroom Water View    74305   Darik   Belltown        Downtown        47.6154 -122.349        Entire home/apt 0       2       144    NULL     12      6       0
+25002   "Beautiful      0        Friendly Ballard"      102684  Amanda  0.0     0.0     47.67941169     -122    0       0       NULL    308    404      12
+26116   Adult Only Quiet 2/b    110248  Jamilah Capitol Hill    Capitol Hill    47.6174 -122.327        Entire home/apt 0       2       365    NULL     12      1       2
+30712   Cozy Ballard Apartme    107605  Al      Ballard Ballard 47.6789 -122.382        Entire home/apt 0       3       358     NULL    11     1
+37234   Ballard: Walk to Sal    160789  Darrell Ballard Ballard 47.688  -122.392        Entire home/apt 0       3       311     NULL    0      0
+38545   "3br    0       fire place       chef kitchen"  165390  0.0     0.0     Other neighborhoods     48      -122    0       NULL    1      357      67
+41401   Home Away From Home     180441  Pina    North Beacon Hill       Beacon Hill     47.5603 -122.314        Entire home/apt 0       10     337      NULL    7       1       0
+43373   Big sunny central ho    189356  Michael Wallingford     Other neighborhoods     47.6506 -122.331        Private room    0       2      338      NULL    1       1       3
+46022   Cottage in West Seat    205412  Meg     The Junction    West Seattle    47.5566 -122.377        Private room    0       1       363    NULL     4       2       0
+47196   Capitol Hill Suite +    212740  Shalini Stevens Capitol Hill    47.6215 -122.303        Private room    0       1       348     NULL   12       1       5
+47491   Tranquil Rooms at Ma    215230  Carol   Wedgewood       Other neighborhoods     47.6925 -122.287        Private room    0       3      166      NULL    7       4       1
+48319   Modern Loft with Spa    220013  Erik            Cascade 47.6197 -122.339        Entire home/apt 0       3       122     NULL    8      0
+48848   green suite seattle     212404  Piper + Kent    Windermere      Other neighborhoods     47.6716 -122.26 Entire home/apt 0       2      172      NULL    6       1       0
+50233   West Seattle Vacatio    230140  Marie   Genesee West Seattle    47.5664 -122.381        Entire home/apt 0       3       237     NULL   0
+51826   Awesome Fremont Town    238982  Maria & Graham  Fremont Other neighborhoods     47.6604 -122.353        Private room    0       1      365      NULL    9       3       1
+52525   Maple Creek House in    215230  Carol   Wedgewood       Other neighborhoods     47.6927 -122.285        Private room    0       3      365      NULL    11      4       0
+53803   Amazing 3BR Fremont     238982  Maria & Graham  Fremont Other neighborhoods     47.6603 -122.352        Entire home/apt 0       7      308      NULL    9       3       1
+53867   U District Backyard     187753  Kevin & Jennifer        Ravenna Other neighborhoods     47.6756 -122.296        Entire home/apt 0      20       NULL    11      1       5
+58503   Spacious Private Day    157262  Visala  Greenwood       Other neighborhoods     47.6875 -122.356        Entire home/apt 0       1      361      NULL    11      1       5
+59708   1 Bedroom Beautiful     74305   Darik   Belltown        Downtown        47.6148 -122.349        Entire home/apt 0       2       163    NULL     11      6       0
+59827   1 Bedroom Sweeping V    74305   Darik   Belltown        Downtown        47.6163 -122.344        Entire home/apt 0       2       204    NULL     12      6       0
+59838   Wonderful 2 Bedroom     74305   Darik   Belltown        Downtown        47.6142 -122.345        Entire home/apt 0       2       154    NULL     11      6       1
+Time taken: 1.203 seconds, Fetched: 50 row(s)
+hive>
