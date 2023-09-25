@@ -1,0 +1,1352 @@
+rajadeepak@LAPTOP-DJD8S3GA:~$ sudo su - hadoop
+[sudo] password for rajadeepak:
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.90.1-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+This message is shown once a day. To disable it please create the
+/home/hadoop/.hushlogin file.
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table listings --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 09:35:00,627 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 09:35:00,650 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 09:35:00,722 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 09:35:00,723 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 09:35:01,277 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-25 09:35:01,405 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-25 09:35:01,417 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/bb78be807d6ab3194d936a82ce0f40b5/listings.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 09:35:03,522 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/bb78be807d6ab3194d936a82ce0f40b5/listings.jar
+2023-09-25 09:35:03,698 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 09:35:03,698 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 09:35:03,698 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 09:35:03,698 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 09:35:03,704 INFO mapreduce.ImportJobBase: Beginning import of listings
+2023-09-25 09:35:03,704 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 09:35:03,827 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 09:35:04,460 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 09:35:04,637 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 09:35:06,325 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0001
+2023-09-25 09:35:06,790 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0001/libjars/jackson-annotations-2.3.1.jar could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+        at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2315)
+        at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2960)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:904)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:593)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:604)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:572)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:556)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1093)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1043)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:971)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2976)
+
+        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1612)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1558)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:242)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:129)
+        at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:530)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+        at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1088)
+        at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1915)
+        at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1717)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:713)
+2023-09-25 09:35:06,794 INFO mapreduce.JobSubmitter: Cleaning up the staging area /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0001
+2023-09-25 09:35:06,875 ERROR tool.ImportTool: Import failed: org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0001/libjars/jackson-annotations-2.3.1.jar could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+        at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2315)
+        at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2960)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:904)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:593)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:604)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:572)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:556)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1093)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1043)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:971)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2976)
+
+        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1612)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1558)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:242)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:129)
+        at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:530)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+        at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1088)
+        at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1915)
+        at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1717)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:713)
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table listings --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 09:45:50,098 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 09:45:50,140 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 09:45:50,212 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 09:45:50,213 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 09:45:50,750 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-25 09:45:50,831 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-25 09:45:50,841 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/3c4c6755e42499f9a91ac61c2973783c/listings.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 09:45:52,506 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/3c4c6755e42499f9a91ac61c2973783c/listings.jar
+2023-09-25 09:45:52,733 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 09:45:52,733 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 09:45:52,733 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 09:45:52,733 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 09:45:52,739 INFO mapreduce.ImportJobBase: Beginning import of listings
+2023-09-25 09:45:52,740 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 09:45:52,845 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 09:45:53,298 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 09:45:53,413 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 09:45:55,209 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0002
+2023-09-25 09:45:55,426 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0002/libjars/jackson-annotations-2.3.1.jar could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+        at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2315)
+        at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2960)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:904)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:593)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:604)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:572)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:556)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1093)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1043)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:971)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2976)
+
+        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1612)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1558)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:242)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:129)
+        at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:530)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+        at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1088)
+        at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1915)
+        at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1717)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:713)
+2023-09-25 09:45:55,431 INFO mapreduce.JobSubmitter: Cleaning up the staging area /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0002
+2023-09-25 09:45:55,445 ERROR tool.ImportTool: Import failed: org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695614547880_0002/libjars/jackson-annotations-2.3.1.jar could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+        at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2315)
+        at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2960)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:904)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:593)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:604)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:572)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:556)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1093)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1043)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:971)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2976)
+
+        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1612)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1558)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:242)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:129)
+        at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:530)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+        at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+        at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1088)
+        at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1915)
+        at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1717)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:713)
+
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs dfsadmin -report
+Configured Capacity: 0 (0 B)
+Present Capacity: 0 (0 B)
+DFS Remaining: 0 (0 B)
+DFS Used: 0 (0 B)
+DFS Used%: 0.00%
+Replicated Blocks:
+        Under replicated blocks: 0
+        Blocks with corrupt replicas: 0
+        Missing blocks: 0
+        Missing blocks (with replication factor 1): 0
+        Low redundancy blocks with highest priority to recover: 0
+        Pending deletion blocks: 0
+Erasure Coded Block Groups:
+        Low redundancy block groups: 0
+        Block groups with corrupt internal blocks: 0
+        Missing block groups: 0
+        Low redundancy blocks with highest priority to recover: 0
+        Pending deletion blocks: 0
+
+-------------------------------------------------
+hadoop@LAPTOP-DJD8S3GA:~$ cp /mnt/c/csv/airbnb.csv
+cp: missing destination file operand after '/mnt/c/csv/airbnb.csv'
+Try 'cp --help' for more information.
+hadoop@LAPTOP-DJD8S3GA:~$ cp /mnt/c/csv .\airbnb.csv
+cp: -r not specified; omitting directory '/mnt/c/csv'
+hadoop@LAPTOP-DJD8S3GA:~$ jps
+4304 NameNode
+5009 NodeManager
+14930 Jps
+4883 ResourceManager
+2437 RunJar
+2569 RunJar
+4665 SecondaryNameNode
+hadoop@LAPTOP-DJD8S3GA:~$ start-dfs.sh
+Starting namenodes on [localhost]
+localhost: namenode is running as process 4304.  Stop it first and ensure /tmp/hadoop-hadoop-namenode.pid file is empty before retry.
+Starting datanodes
+Starting secondary namenodes [LAPTOP-DJD8S3GA]
+LAPTOP-DJD8S3GA: secondarynamenode is running as process 4665.  Stop it first and ensure /tmp/hadoop-hadoop-secondarynamenode.pid file is empty before retry.
+hadoop@LAPTOP-DJD8S3GA:~$ ls
+apache-hive-3.1.2-bin.tar.gz  hadoopdata     mysql-connector-java-5.1.28.jar     spark-3.4.0-bin-hadoop3.tgz
+derby.log                     hive           mysql-connector-java-8.0.27         sqoop
+hadoop                        listings.java  mysql-connector-java-8.0.27.tar.gz  sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+hadoop-3.3.2.tar.gz           metastore_db   spark
+hadoop@LAPTOP-DJD8S3GA:~$ jps
+4304 NameNode
+5009 NodeManager
+15441 Jps
+4883 ResourceManager
+2437 RunJar
+2569 RunJar
+4665 SecondaryNameNode
+hadoop@LAPTOP-DJD8S3GA:~$ stop-all.sh
+WARNING: Stopping all Apache Hadoop daemons as hadoop in 10 seconds.
+WARNING: Use CTRL-C to abort.
+Stopping namenodes on [localhost]
+Stopping datanodes
+Stopping secondary namenodes [LAPTOP-DJD8S3GA]
+Stopping nodemanagers
+Stopping resourcemanager
+hadoop@LAPTOP-DJD8S3GA:~$ start-dfs.sh
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [LAPTOP-DJD8S3GA]
+hadoop@LAPTOP-DJD8S3GA:~$ jps
+16706 Jps
+2437 RunJar
+2569 RunJar
+16570 SecondaryNameNode
+16236 NameNode
+hadoop@LAPTOP-DJD8S3GA:~$ stop-dfs.sh
+Stopping namenodes on [localhost]
+Stopping datanodes
+Stopping secondary namenodes [LAPTOP-DJD8S3GA]
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop fs -ls /
+ls: Call From LAPTOP-DJD8S3GA/127.0.1.1 to localhost:9000 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs namenode -format
+2023-09-25 10:26:52,921 INFO namenode.NameNode: STARTUP_MSG:
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = LAPTOP-DJD8S3GA/127.0.1.1
+STARTUP_MSG:   args = [-format]
+STARTUP_MSG:   version = 3.3.2
+STARTUP_MSG:   classpath = /home/hadoop/hadoop/etc/hadoop:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-simplekdc-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-server-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-collections-3.2.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-server-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-mapper-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-io-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/protobuf-java-2.5.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/curator-framework-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/checker-qual-2.5.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/httpcore-4.4.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/netty-3.10.6.Final.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-server-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/failureaccess-1.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-codec-1.11.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-logging-1.1.3.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-json-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/j2objc-annotations-1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-shaded-protobuf_3_7-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-common-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-xc-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-servlet-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/curator-recipes-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/zookeeper-jute-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/curator-client-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/log4j-1.2.17.jar:/home/hadoop/hadoop/share/hadoop/common/lib/snappy-java-1.1.8.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-compress-1.21.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-config-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/re2j-1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-annotations-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-webapp-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-crypto-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-security-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/token-provider-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-servlet-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/nimbus-jose-jwt-9.8.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-text-1.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/asm-5.0.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/metrics-core-3.2.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/httpclient-4.5.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-util-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-annotations-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-jaxrs-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-beanutils-1.9.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-cli-1.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jakarta.activation-api-1.2.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-math3-3.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jcip-annotations-1.0-1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/gson-2.8.9.jar:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-api-1.7.30.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-auth-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-configuration2-2.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jaxb-impl-2.2.3-1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jul-to-slf4j-1.7.30.jar:/home/hadoop/hadoop/share/hadoop/common/lib/guava-27.0-jre.jar:/home/hadoop/hadoop/share/hadoop/common/lib/paranamer-2.3.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-admin-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-xdr-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/zookeeper-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-daemon-1.0.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-lang3-3.12.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-net-3.6.jar:/home/hadoop/hadoop/share/hadoop/common/lib/audience-annotations-0.5.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsch-0.1.55.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-io-2.8.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-core-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsp-api-2.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/json-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-xml-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/woodstox-core-5.3.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/accessors-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsr305-3.0.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-shaded-guava-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/javax.servlet-api-3.1.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-databind-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-pkix-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-http-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/animal-sniffer-annotations-1.17.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-util-ajax-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-client-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jaxb-api-2.2.11.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jettison-1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.30.jar:/home/hadoop/hadoop/share/hadoop/common/lib/avro-1.7.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-core-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-core-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/dnsjava-2.1.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-core-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/stax2-api-4.2.1.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-nfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-registry-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-common-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-kms-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-simplekdc-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-server-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/netty-all-4.1.68.Final.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-collections-3.2.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-server-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-io-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/curator-framework-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/checker-qual-2.5.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/httpcore-4.4.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/netty-3.10.6.Final.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-server-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/failureaccess-1.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-codec-1.11.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-logging-1.1.3.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-json-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/j2objc-annotations-1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-shaded-protobuf_3_7-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-common-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-xc-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-servlet-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/curator-recipes-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/zookeeper-jute-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-identity-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/curator-client-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/snappy-java-1.1.8.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-compress-1.21.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-config-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/re2j-1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-annotations-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-webapp-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-crypto-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-security-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/nimbus-jose-jwt-9.8.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-text-1.4.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/asm-5.0.4.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/httpclient-4.5.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-util-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-annotations-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-jaxrs-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-beanutils-1.9.4.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jakarta.activation-api-1.2.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-math3-3.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jcip-annotations-1.0-1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/gson-2.8.9.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-auth-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-configuration2-2.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jaxb-impl-2.2.3-1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/guava-27.0-jre.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/leveldbjni-all-1.8.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/paranamer-2.3.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-admin-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-xdr-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/zookeeper-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/json-simple-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-lang3-3.12.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-net-3.6.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/audience-annotations-0.5.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jsch-0.1.55.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-io-2.8.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-asn1-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/json-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-xml-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/woodstox-core-5.3.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/accessors-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jsr305-3.0.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/okhttp-2.7.5.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-shaded-guava-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/javax.servlet-api-3.1.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-databind-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-pkix-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-http-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/animal-sniffer-annotations-1.17.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-util-ajax-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-client-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jsr311-api-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jaxb-api-2.2.11.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jettison-1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/avro-1.7.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-core-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-core-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/dnsjava-2.1.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/okio-1.6.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-core-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/stax2-api-4.2.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-nfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-rbf-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-httpfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-rbf-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-uploader-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-app-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-nativetask-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-api-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/objenesis-2.6.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.inject-1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-servlet-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/asm-analysis-9.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-plus-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.websocket-api-1.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/bcprov-jdk15on-1.60.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-server-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/guice-4.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/snakeyaml-1.26.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/aopalliance-1.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/metrics-core-3.2.4.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jersey-client-1.19.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-annotations-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-client-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/bcpkix-jdk15on-1.60.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-base-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jline-3.9.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax-websocket-server-impl-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/ehcache-3.3.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/java-util-1.9.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jakarta.xml.bind-api-2.3.3.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/fst-2.50.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/guice-servlet-4.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.ws.rs-api-2.1.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax-websocket-client-impl-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jna-5.2.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-common-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-client-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/asm-tree-9.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/asm-commons-9.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/json-io-2.5.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.websocket-client-api-1.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-jndi-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jersey-guice-1.19.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-tests-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-applications-mawo-core-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-services-core-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-client-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-services-api-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-router-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-api-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-registry-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.3.2.jar
+STARTUP_MSG:   build = git@github.com:apache/hadoop.git -r 0bcb014209e219273cb6fd4152df7df713cbac61; compiled by 'chao' on 2022-02-21T18:39Z
+STARTUP_MSG:   java = 1.8.0_382
+************************************************************/
+2023-09-25 10:26:52,927 INFO namenode.NameNode: registered UNIX signal handlers for [TERM, HUP, INT]
+2023-09-25 10:26:52,981 INFO namenode.NameNode: createNameNode [-format]
+2023-09-25 10:26:53,291 INFO namenode.NameNode: Formatting using clusterid: CID-744b5c92-13d4-43ee-ab90-bb2865cf515c
+2023-09-25 10:26:53,348 INFO namenode.FSEditLog: Edit logging is async:true
+2023-09-25 10:26:53,370 INFO namenode.FSNamesystem: KeyProvider: null
+2023-09-25 10:26:53,371 INFO namenode.FSNamesystem: fsLock is fair: true
+2023-09-25 10:26:53,372 INFO namenode.FSNamesystem: Detailed lock hold time metrics enabled: false
+2023-09-25 10:26:53,375 INFO namenode.FSNamesystem: fsOwner                = hadoop (auth:SIMPLE)
+2023-09-25 10:26:53,375 INFO namenode.FSNamesystem: supergroup             = supergroup
+2023-09-25 10:26:53,375 INFO namenode.FSNamesystem: isPermissionEnabled    = true
+2023-09-25 10:26:53,375 INFO namenode.FSNamesystem: isStoragePolicyEnabled = true
+2023-09-25 10:26:53,375 INFO namenode.FSNamesystem: HA Enabled: false
+2023-09-25 10:26:53,406 INFO common.Util: dfs.datanode.fileio.profiling.sampling.percentage set to 0. Disabling file IO profiling
+2023-09-25 10:26:53,416 INFO blockmanagement.DatanodeManager: dfs.block.invalidate.limit: configured=1000, counted=60, effected=1000
+2023-09-25 10:26:53,416 INFO blockmanagement.DatanodeManager: dfs.namenode.datanode.registration.ip-hostname-check=true
+2023-09-25 10:26:53,418 INFO blockmanagement.BlockManager: dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
+2023-09-25 10:26:53,418 INFO blockmanagement.BlockManager: The block deletion will start around 2023 Sep 25 10:26:53
+2023-09-25 10:26:53,420 INFO util.GSet: Computing capacity for map BlocksMap
+2023-09-25 10:26:53,420 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:26:53,421 INFO util.GSet: 2.0% max memory 841 MB = 16.8 MB
+2023-09-25 10:26:53,421 INFO util.GSet: capacity      = 2^21 = 2097152 entries
+2023-09-25 10:26:53,427 INFO blockmanagement.BlockManager: Storage policy satisfier is disabled
+2023-09-25 10:26:53,427 INFO blockmanagement.BlockManager: dfs.block.access.token.enable = false
+2023-09-25 10:26:53,431 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.threshold-pct = 0.999
+2023-09-25 10:26:53,431 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.min.datanodes = 0
+2023-09-25 10:26:53,431 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.extension = 30000
+2023-09-25 10:26:53,432 INFO blockmanagement.BlockManager: defaultReplication         = 1
+2023-09-25 10:26:53,432 INFO blockmanagement.BlockManager: maxReplication             = 512
+2023-09-25 10:26:53,432 INFO blockmanagement.BlockManager: minReplication             = 1
+2023-09-25 10:26:53,432 INFO blockmanagement.BlockManager: maxReplicationStreams      = 2
+2023-09-25 10:26:53,432 INFO blockmanagement.BlockManager: redundancyRecheckInterval  = 3000ms
+2023-09-25 10:26:53,432 INFO blockmanagement.BlockManager: encryptDataTransfer        = false
+2023-09-25 10:26:53,432 INFO blockmanagement.BlockManager: maxNumBlocksToLog          = 1000
+2023-09-25 10:26:53,452 INFO namenode.FSDirectory: GLOBAL serial map: bits=29 maxEntries=536870911
+2023-09-25 10:26:53,452 INFO namenode.FSDirectory: USER serial map: bits=24 maxEntries=16777215
+2023-09-25 10:26:53,452 INFO namenode.FSDirectory: GROUP serial map: bits=24 maxEntries=16777215
+2023-09-25 10:26:53,452 INFO namenode.FSDirectory: XATTR serial map: bits=24 maxEntries=16777215
+2023-09-25 10:26:53,463 INFO util.GSet: Computing capacity for map INodeMap
+2023-09-25 10:26:53,463 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:26:53,463 INFO util.GSet: 1.0% max memory 841 MB = 8.4 MB
+2023-09-25 10:26:53,463 INFO util.GSet: capacity      = 2^20 = 1048576 entries
+2023-09-25 10:26:53,467 INFO namenode.FSDirectory: ACLs enabled? true
+2023-09-25 10:26:53,467 INFO namenode.FSDirectory: POSIX ACL inheritance enabled? true
+2023-09-25 10:26:53,467 INFO namenode.FSDirectory: XAttrs enabled? true
+2023-09-25 10:26:53,467 INFO namenode.NameNode: Caching file names occurring more than 10 times
+2023-09-25 10:26:53,471 INFO snapshot.SnapshotManager: Loaded config captureOpenFiles: false, skipCaptureAccessTimeOnlyChange: false, snapshotDiffAllowSnapRootDescendant: true, maxSnapshotLimit: 65536
+2023-09-25 10:26:53,474 INFO snapshot.SnapshotManager: SkipList is disabled
+2023-09-25 10:26:53,477 INFO util.GSet: Computing capacity for map cachedBlocks
+2023-09-25 10:26:53,477 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:26:53,477 INFO util.GSet: 0.25% max memory 841 MB = 2.1 MB
+2023-09-25 10:26:53,477 INFO util.GSet: capacity      = 2^18 = 262144 entries
+2023-09-25 10:26:53,483 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.window.num.buckets = 10
+2023-09-25 10:26:53,483 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.num.users = 10
+2023-09-25 10:26:53,483 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
+2023-09-25 10:26:53,486 INFO namenode.FSNamesystem: Retry cache on namenode is enabled
+2023-09-25 10:26:53,486 INFO namenode.FSNamesystem: Retry cache will use 0.03 of total heap and retry cache entry expiry time is 600000 millis
+2023-09-25 10:26:53,488 INFO util.GSet: Computing capacity for map NameNodeRetryCache
+2023-09-25 10:26:53,488 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:26:53,488 INFO util.GSet: 0.029999999329447746% max memory 841 MB = 258.4 KB
+2023-09-25 10:26:53,488 INFO util.GSet: capacity      = 2^15 = 32768 entries
+Re-format filesystem in Storage Directory root= /home/hadoop/hadoopdata/hdfs/namenode; location= null ? (Y or N) y
+2023-09-25 10:26:56,666 INFO namenode.FSImage: Allocated new BlockPoolId: BP-313650375-127.0.1.1-1695617816659
+2023-09-25 10:26:56,666 INFO common.Storage: Will remove files: [/home/hadoop/hadoopdata/hdfs/namenode/current/edits_inprogress_0000000000000000068, /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage_0000000000000000000.md5, /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage_0000000000000000066.md5, /home/hadoop/hadoopdata/hdfs/namenode/current/edits_0000000000000000051-0000000000000000066, /home/hadoop/hadoopdata/hdfs/namenode/current/edits_0000000000000000001-0000000000000000050, /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage_0000000000000000000, /home/hadoop/hadoopdata/hdfs/namenode/current/VERSION, /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage_0000000000000000066, /home/hadoop/hadoopdata/hdfs/namenode/current/edits_0000000000000000067-0000000000000000067, /home/hadoop/hadoopdata/hdfs/namenode/current/seen_txid]
+2023-09-25 10:26:56,689 INFO common.Storage: Storage directory /home/hadoop/hadoopdata/hdfs/namenode has been successfully formatted.
+2023-09-25 10:26:56,711 INFO namenode.FSImageFormatProtobuf: Saving image file /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage.ckpt_0000000000000000000 using no compression
+2023-09-25 10:26:56,820 INFO namenode.FSImageFormatProtobuf: Image file /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage.ckpt_0000000000000000000 of size 401 bytes saved in 0 seconds .
+2023-09-25 10:26:56,828 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid >= 0
+2023-09-25 10:26:56,842 INFO namenode.FSNamesystem: Stopping services started for active state
+2023-09-25 10:26:56,842 INFO namenode.FSNamesystem: Stopping services started for standby state
+2023-09-25 10:26:56,846 INFO namenode.FSImage: FSImageSaver clean checkpoint: txid=0 when meet shutdown.
+2023-09-25 10:26:56,847 INFO namenode.NameNode: SHUTDOWN_MSG:
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at LAPTOP-DJD8S3GA/127.0.1.1
+************************************************************/
+hadoop@LAPTOP-DJD8S3GA:~$ start-dfs.sh
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [LAPTOP-DJD8S3GA]
+hadoop@LAPTOP-DJD8S3GA:~$ jps
+17377 NameNode
+17713 SecondaryNameNode
+2437 RunJar
+17847 Jps
+2569 RunJar
+hadoop@LAPTOP-DJD8S3GA:~$ cd hadoop
+hadoop@LAPTOP-DJD8S3GA:~/hadoop$ ls
+LICENSE-binary  LICENSE.txt  NOTICE-binary  NOTICE.txt  README.txt  bin  etc  include  lib  libexec  licenses-binary  logs  sbin  share
+hadoop@LAPTOP-DJD8S3GA:~/hadoop$ cd etc/hadoop
+hadoop@LAPTOP-DJD8S3GA:~/hadoop/etc/hadoop$ nano core-site.xml
+hadoop@LAPTOP-DJD8S3GA:~/hadoop/etc/hadoop$ nano hdfs-site.xml
+hadoop@LAPTOP-DJD8S3GA:~/hadoop/etc/hadoop$ cd ~
+hadoop@LAPTOP-DJD8S3GA:~$ rm -r hadoopdata
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs namenode -format
+namenode is running as process 17377.  Stop it first and ensure /tmp/hadoop-hadoop-namenode.pid file is empty before retry.
+hadoop@LAPTOP-DJD8S3GA:~$ stop-dfs.sh
+Stopping namenodes on [localhost]
+Stopping datanodes
+Stopping secondary namenodes [LAPTOP-DJD8S3GA]
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs namenode -format
+2023-09-25 10:29:08,662 INFO namenode.NameNode: STARTUP_MSG:
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = LAPTOP-DJD8S3GA/127.0.1.1
+STARTUP_MSG:   args = [-format]
+STARTUP_MSG:   version = 3.3.2
+STARTUP_MSG:   classpath = /home/hadoop/hadoop/etc/hadoop:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-simplekdc-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-server-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-collections-3.2.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-server-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-mapper-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-io-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/protobuf-java-2.5.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/curator-framework-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/checker-qual-2.5.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/httpcore-4.4.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/netty-3.10.6.Final.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-server-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/failureaccess-1.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-codec-1.11.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-logging-1.1.3.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-json-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/j2objc-annotations-1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-shaded-protobuf_3_7-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-common-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-xc-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-servlet-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/curator-recipes-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/zookeeper-jute-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/curator-client-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/log4j-1.2.17.jar:/home/hadoop/hadoop/share/hadoop/common/lib/snappy-java-1.1.8.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-compress-1.21.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-config-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/re2j-1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-annotations-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-webapp-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-crypto-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-security-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/token-provider-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-servlet-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/nimbus-jose-jwt-9.8.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-text-1.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/asm-5.0.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/metrics-core-3.2.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/httpclient-4.5.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-util-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-annotations-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-jaxrs-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-beanutils-1.9.4.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-cli-1.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jakarta.activation-api-1.2.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-math3-3.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jcip-annotations-1.0-1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/gson-2.8.9.jar:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-api-1.7.30.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-auth-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-configuration2-2.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jaxb-impl-2.2.3-1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jul-to-slf4j-1.7.30.jar:/home/hadoop/hadoop/share/hadoop/common/lib/guava-27.0-jre.jar:/home/hadoop/hadoop/share/hadoop/common/lib/paranamer-2.3.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-admin-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-xdr-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/zookeeper-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-daemon-1.0.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-lang3-3.12.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-net-3.6.jar:/home/hadoop/hadoop/share/hadoop/common/lib/audience-annotations-0.5.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsch-0.1.55.jar:/home/hadoop/hadoop/share/hadoop/common/lib/commons-io-2.8.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-core-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsp-api-2.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/json-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-xml-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/woodstox-core-5.3.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/accessors-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsr305-3.0.2.jar:/home/hadoop/hadoop/share/hadoop/common/lib/hadoop-shaded-guava-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/javax.servlet-api-3.1.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-databind-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-pkix-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-http-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/animal-sniffer-annotations-1.17.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jetty-util-ajax-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-client-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jaxb-api-2.2.11.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerby-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jettison-1.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.30.jar:/home/hadoop/hadoop/share/hadoop/common/lib/avro-1.7.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jackson-core-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/common/lib/kerb-core-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/common/lib/dnsjava-2.1.7.jar:/home/hadoop/hadoop/share/hadoop/common/lib/jersey-core-1.19.jar:/home/hadoop/hadoop/share/hadoop/common/lib/stax2-api-4.2.1.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-nfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-registry-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-common-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/common/hadoop-kms-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-simplekdc-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-server-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/netty-all-4.1.68.Final.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-collections-3.2.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-server-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-io-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/curator-framework-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/checker-qual-2.5.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/httpcore-4.4.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/netty-3.10.6.Final.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-server-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/failureaccess-1.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-codec-1.11.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-logging-1.1.3.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-json-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/j2objc-annotations-1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-shaded-protobuf_3_7-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-common-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-xc-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-servlet-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/curator-recipes-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/zookeeper-jute-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-identity-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/curator-client-4.2.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/snappy-java-1.1.8.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-compress-1.21.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-config-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/re2j-1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-annotations-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-webapp-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-crypto-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-security-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/nimbus-jose-jwt-9.8.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-text-1.4.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/asm-5.0.4.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/httpclient-4.5.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-util-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-annotations-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-jaxrs-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-beanutils-1.9.4.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jakarta.activation-api-1.2.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-math3-3.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jcip-annotations-1.0-1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/gson-2.8.9.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-auth-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-configuration2-2.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jaxb-impl-2.2.3-1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/guava-27.0-jre.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/leveldbjni-all-1.8.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/paranamer-2.3.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-admin-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-xdr-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/zookeeper-3.5.6.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/json-simple-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-lang3-3.12.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-net-3.6.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/audience-annotations-0.5.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jsch-0.1.55.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/commons-io-2.8.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-asn1-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/json-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-xml-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/woodstox-core-5.3.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/accessors-smart-2.4.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jsr305-3.0.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/okhttp-2.7.5.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/hadoop-shaded-guava-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/javax.servlet-api-3.1.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-databind-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-pkix-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-http-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/animal-sniffer-annotations-1.17.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jetty-util-ajax-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-client-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jsr311-api-1.1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jaxb-api-2.2.11.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerby-util-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jettison-1.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/avro-1.7.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jackson-core-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/kerb-core-1.0.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/dnsjava-2.1.7.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/okio-1.6.0.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/jersey-core-1.19.jar:/home/hadoop/hadoop/share/hadoop/hdfs/lib/stax2-api-4.2.1.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-nfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-rbf-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-httpfs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/hdfs/hadoop-hdfs-rbf-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.3.2-tests.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-uploader-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-app-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-nativetask-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-api-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/objenesis-2.6.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.inject-1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-servlet-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/asm-analysis-9.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-plus-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.websocket-api-1.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/bcprov-jdk15on-1.60.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-server-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/guice-4.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/snakeyaml-1.26.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/aopalliance-1.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/metrics-core-3.2.4.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jersey-client-1.19.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-annotations-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-client-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/bcpkix-jdk15on-1.60.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-base-2.13.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jline-3.9.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax-websocket-server-impl-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/ehcache-3.3.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/java-util-1.9.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jakarta.xml.bind-api-2.3.3.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/fst-2.50.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/guice-servlet-4.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.ws.rs-api-2.1.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax-websocket-client-impl-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jna-5.2.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-common-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/websocket-client-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/asm-tree-9.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/asm-commons-9.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/json-io-2.5.1.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/javax.websocket-client-api-1.0.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jetty-jndi-9.4.43.v20210629.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar:/home/hadoop/hadoop/share/hadoop/yarn/lib/jersey-guice-1.19.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-tests-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-common-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-applications-mawo-core-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-services-core-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-client-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-services-api-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-router-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-api-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-registry-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.3.2.jar:/home/hadoop/hadoop/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.3.2.jar
+STARTUP_MSG:   build = git@github.com:apache/hadoop.git -r 0bcb014209e219273cb6fd4152df7df713cbac61; compiled by 'chao' on 2022-02-21T18:39Z
+STARTUP_MSG:   java = 1.8.0_382
+************************************************************/
+2023-09-25 10:29:08,672 INFO namenode.NameNode: registered UNIX signal handlers for [TERM, HUP, INT]
+2023-09-25 10:29:08,724 INFO namenode.NameNode: createNameNode [-format]
+2023-09-25 10:29:09,007 INFO namenode.NameNode: Formatting using clusterid: CID-97be6d0c-42c5-4eb4-b2c2-3d7ab7dda49d
+2023-09-25 10:29:09,044 INFO namenode.FSEditLog: Edit logging is async:true
+2023-09-25 10:29:09,066 INFO namenode.FSNamesystem: KeyProvider: null
+2023-09-25 10:29:09,067 INFO namenode.FSNamesystem: fsLock is fair: true
+2023-09-25 10:29:09,067 INFO namenode.FSNamesystem: Detailed lock hold time metrics enabled: false
+2023-09-25 10:29:09,071 INFO namenode.FSNamesystem: fsOwner                = hadoop (auth:SIMPLE)
+2023-09-25 10:29:09,071 INFO namenode.FSNamesystem: supergroup             = supergroup
+2023-09-25 10:29:09,071 INFO namenode.FSNamesystem: isPermissionEnabled    = true
+2023-09-25 10:29:09,071 INFO namenode.FSNamesystem: isStoragePolicyEnabled = true
+2023-09-25 10:29:09,071 INFO namenode.FSNamesystem: HA Enabled: false
+2023-09-25 10:29:09,107 INFO common.Util: dfs.datanode.fileio.profiling.sampling.percentage set to 0. Disabling file IO profiling
+2023-09-25 10:29:09,115 INFO blockmanagement.DatanodeManager: dfs.block.invalidate.limit: configured=1000, counted=60, effected=1000
+2023-09-25 10:29:09,116 INFO blockmanagement.DatanodeManager: dfs.namenode.datanode.registration.ip-hostname-check=true
+2023-09-25 10:29:09,118 INFO blockmanagement.BlockManager: dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
+2023-09-25 10:29:09,118 INFO blockmanagement.BlockManager: The block deletion will start around 2023 Sep 25 10:29:09
+2023-09-25 10:29:09,120 INFO util.GSet: Computing capacity for map BlocksMap
+2023-09-25 10:29:09,120 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:29:09,120 INFO util.GSet: 2.0% max memory 841 MB = 16.8 MB
+2023-09-25 10:29:09,120 INFO util.GSet: capacity      = 2^21 = 2097152 entries
+2023-09-25 10:29:09,126 INFO blockmanagement.BlockManager: Storage policy satisfier is disabled
+2023-09-25 10:29:09,126 INFO blockmanagement.BlockManager: dfs.block.access.token.enable = false
+2023-09-25 10:29:09,130 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.threshold-pct = 0.999
+2023-09-25 10:29:09,130 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.min.datanodes = 0
+2023-09-25 10:29:09,130 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.extension = 30000
+2023-09-25 10:29:09,131 INFO blockmanagement.BlockManager: defaultReplication         = 1
+2023-09-25 10:29:09,131 INFO blockmanagement.BlockManager: maxReplication             = 512
+2023-09-25 10:29:09,131 INFO blockmanagement.BlockManager: minReplication             = 1
+2023-09-25 10:29:09,131 INFO blockmanagement.BlockManager: maxReplicationStreams      = 2
+2023-09-25 10:29:09,131 INFO blockmanagement.BlockManager: redundancyRecheckInterval  = 3000ms
+2023-09-25 10:29:09,131 INFO blockmanagement.BlockManager: encryptDataTransfer        = false
+2023-09-25 10:29:09,131 INFO blockmanagement.BlockManager: maxNumBlocksToLog          = 1000
+2023-09-25 10:29:09,147 INFO namenode.FSDirectory: GLOBAL serial map: bits=29 maxEntries=536870911
+2023-09-25 10:29:09,147 INFO namenode.FSDirectory: USER serial map: bits=24 maxEntries=16777215
+2023-09-25 10:29:09,147 INFO namenode.FSDirectory: GROUP serial map: bits=24 maxEntries=16777215
+2023-09-25 10:29:09,147 INFO namenode.FSDirectory: XATTR serial map: bits=24 maxEntries=16777215
+2023-09-25 10:29:09,158 INFO util.GSet: Computing capacity for map INodeMap
+2023-09-25 10:29:09,158 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:29:09,158 INFO util.GSet: 1.0% max memory 841 MB = 8.4 MB
+2023-09-25 10:29:09,158 INFO util.GSet: capacity      = 2^20 = 1048576 entries
+2023-09-25 10:29:09,161 INFO namenode.FSDirectory: ACLs enabled? true
+2023-09-25 10:29:09,161 INFO namenode.FSDirectory: POSIX ACL inheritance enabled? true
+2023-09-25 10:29:09,161 INFO namenode.FSDirectory: XAttrs enabled? true
+2023-09-25 10:29:09,162 INFO namenode.NameNode: Caching file names occurring more than 10 times
+2023-09-25 10:29:09,168 INFO snapshot.SnapshotManager: Loaded config captureOpenFiles: false, skipCaptureAccessTimeOnlyChange: false, snapshotDiffAllowSnapRootDescendant: true, maxSnapshotLimit: 65536
+2023-09-25 10:29:09,170 INFO snapshot.SnapshotManager: SkipList is disabled
+2023-09-25 10:29:09,177 INFO util.GSet: Computing capacity for map cachedBlocks
+2023-09-25 10:29:09,178 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:29:09,178 INFO util.GSet: 0.25% max memory 841 MB = 2.1 MB
+2023-09-25 10:29:09,178 INFO util.GSet: capacity      = 2^18 = 262144 entries
+2023-09-25 10:29:09,186 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.window.num.buckets = 10
+2023-09-25 10:29:09,186 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.num.users = 10
+2023-09-25 10:29:09,186 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
+2023-09-25 10:29:09,189 INFO namenode.FSNamesystem: Retry cache on namenode is enabled
+2023-09-25 10:29:09,189 INFO namenode.FSNamesystem: Retry cache will use 0.03 of total heap and retry cache entry expiry time is 600000 millis
+2023-09-25 10:29:09,190 INFO util.GSet: Computing capacity for map NameNodeRetryCache
+2023-09-25 10:29:09,190 INFO util.GSet: VM type       = 64-bit
+2023-09-25 10:29:09,191 INFO util.GSet: 0.029999999329447746% max memory 841 MB = 258.4 KB
+2023-09-25 10:29:09,191 INFO util.GSet: capacity      = 2^15 = 32768 entries
+2023-09-25 10:29:09,211 INFO namenode.FSImage: Allocated new BlockPoolId: BP-724778405-127.0.1.1-1695617949205
+2023-09-25 10:29:09,228 INFO common.Storage: Storage directory /home/hadoop/hadoopdata/hdfs/namenode has been successfully formatted.
+2023-09-25 10:29:09,249 INFO namenode.FSImageFormatProtobuf: Saving image file /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage.ckpt_0000000000000000000 using no compression
+2023-09-25 10:29:09,361 INFO namenode.FSImageFormatProtobuf: Image file /home/hadoop/hadoopdata/hdfs/namenode/current/fsimage.ckpt_0000000000000000000 of size 401 bytes saved in 0 seconds .
+2023-09-25 10:29:09,373 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid >= 0
+2023-09-25 10:29:09,387 INFO namenode.FSNamesystem: Stopping services started for active state
+2023-09-25 10:29:09,387 INFO namenode.FSNamesystem: Stopping services started for standby state
+2023-09-25 10:29:09,390 INFO namenode.FSImage: FSImageSaver clean checkpoint: txid=0 when meet shutdown.
+2023-09-25 10:29:09,390 INFO namenode.NameNode: SHUTDOWN_MSG:
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at LAPTOP-DJD8S3GA/127.0.1.1
+************************************************************/
+hadoop@LAPTOP-DJD8S3GA:~$ start-dfs.sh
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [LAPTOP-DJD8S3GA]
+hadoop@LAPTOP-DJD8S3GA:~$ jps
+18661 DataNode
+2437 RunJar
+18855 SecondaryNameNode
+2569 RunJar
+18985 Jps
+18507 NameNode
+hadoop@LAPTOP-DJD8S3GA:~$ start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs dfs -mkdir /tmp
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs dfs -chmod g+w /tmp
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs dfs -mkdir -p /user/hive/warehouse
+hadoop@LAPTOP-DJD8S3GA:~$ hdfs dfs -chmod g+w /user/hive/warehouse
+hadoop@LAPTOP-DJD8S3GA:~$  sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table listings --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 10:32:10,616 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 10:32:10,653 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 10:32:10,817 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 10:32:10,817 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 10:32:11,657 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-25 10:32:12,004 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `listings` AS t LIMIT 1
+2023-09-25 10:32:12,020 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/232745e6389d0a50c5c5fbf06aa7fe91/listings.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 10:32:14,085 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/232745e6389d0a50c5c5fbf06aa7fe91/listings.jar
+2023-09-25 10:32:14,101 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 10:32:14,101 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 10:32:14,101 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 10:32:14,102 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 10:32:14,107 INFO mapreduce.ImportJobBase: Beginning import of listings
+2023-09-25 10:32:14,108 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 10:32:14,211 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 10:32:14,873 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 10:32:15,141 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 10:32:17,047 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695617981749_0001
+2023-09-25 10:32:30,271 INFO db.DBInputFormat: Using read commited transaction isolation
+2023-09-25 10:32:30,316 INFO mapreduce.JobSubmitter: number of splits:1
+2023-09-25 10:32:30,865 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1695617981749_0001
+2023-09-25 10:32:30,865 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2023-09-25 10:32:31,156 INFO conf.Configuration: resource-types.xml not found
+2023-09-25 10:32:31,157 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2023-09-25 10:32:31,841 INFO impl.YarnClientImpl: Submitted application application_1695617981749_0001
+2023-09-25 10:32:31,882 INFO mapreduce.Job: The url to track the job: http://LAPTOP-DJD8S3GA.:8088/proxy/application_1695617981749_0001/
+2023-09-25 10:32:31,882 INFO mapreduce.Job: Running job: job_1695617981749_0001
+2023-09-25 10:32:45,127 INFO mapreduce.Job: Job job_1695617981749_0001 running in uber mode : false
+2023-09-25 10:32:45,129 INFO mapreduce.Job:  map 0% reduce 0%
+2023-09-25 10:32:52,222 INFO mapreduce.Job:  map 100% reduce 0%
+2023-09-25 10:32:53,233 INFO mapreduce.Job: Job job_1695617981749_0001 completed successfully
+2023-09-25 10:32:53,409 INFO mapreduce.Job: Counters: 33
+        File System Counters
+                FILE: Number of bytes read=0
+                FILE: Number of bytes written=286023
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=87
+                HDFS: Number of bytes written=444618
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+                HDFS: Number of bytes read erasure-coded=0
+        Job Counters
+                Launched map tasks=1
+                Other local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=4972
+                Total time spent by all reduces in occupied slots (ms)=0
+                Total time spent by all map tasks (ms)=4972
+                Total vcore-milliseconds taken by all map tasks=4972
+                Total megabyte-milliseconds taken by all map tasks=5091328
+        Map-Reduce Framework
+                Map input records=3818
+                Map output records=3818
+                Input split bytes=87
+                Spilled Records=0
+                Failed Shuffles=0
+                Merged Map outputs=0
+                GC time elapsed (ms)=183
+                CPU time spent (ms)=2520
+                Physical memory (bytes) snapshot=267145216
+                Virtual memory (bytes) snapshot=2584498176
+                Total committed heap usage (bytes)=173539328
+                Peak Map Physical memory (bytes)=267145216
+                Peak Map Virtual memory (bytes)=2584498176
+        File Input Format Counters
+                Bytes Read=0
+        File Output Format Counters
+                Bytes Written=444618
+2023-09-25 10:32:53,416 INFO mapreduce.ImportJobBase: Transferred 434.1973 KB in 38.5292 seconds (11.2693 KB/sec)
+2023-09-25 10:32:53,420 INFO mapreduce.ImportJobBase: Retrieved 3818 records.
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop fs -ls
+Found 1 items
+drwxr-xr-x   - hadoop supergroup          0 2023-09-25 10:32 listings
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop fs -ls listings
+Found 2 items
+-rw-r--r--   1 hadoop supergroup          0 2023-09-25 10:32 listings/_SUCCESS
+-rw-r--r--   1 hadoop supergroup     444618 2023-09-25 10:32 listings/part-m-00000
+hadoop@LAPTOP-DJD8S3GA:~$ hadoop fs -cat listings/part-m-00000 | head -5
+3335,Sweet Seattle Urban ,4193,Jessica,Dunlap,Rainier Valley,47.5298,-122.276,Entire home/apt,0,2,309,null,0,4,0
+4291,Sunrise in Seattle M,35749,Jess & Joey,Roosevelt,Other neighborhoods,47.6873,-122.313,Private room,0,2,365,null,10,5,1
+5682,"Cozy Studio,0,8993,Maddy,South Delridge,0.0,47.524,-122.3598906,0,0,3,null,297,12,1
+6606,"Fab,0,14942,Joyce,Wallingford,0.0,47.6541,-122.3376053,0,0,2,null,52,12,1
+7369,launchingpad/landing,19425,Shireen,Broadway,Capitol Hill,47.6154,-122.326,Entire home/apt,0,1,53,null,3,1,1
+cat: Unable to write to output stream.
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:17:19,404 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:17:19,461 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:17:19,622 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:17:19,623 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:17:20,336 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:17:20,422 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:17:20,429 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/3a9d09d9802cd9f4b5781c36b156377e/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:17:25,795 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/3a9d09d9802cd9f4b5781c36b156377e/process.jar
+2023-09-25 14:17:25,844 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:17:25,844 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:17:25,845 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:17:25,845 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:17:26,235 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:17:26,243 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:17:30,806 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:17:31,708 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:17:31,865 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:17:32,825 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695617981749_0002
+2023-09-25 14:17:35,979 INFO db.DBInputFormat: Using read commited transaction isolation
+2023-09-25 14:17:36,035 INFO mapreduce.JobSubmitter: number of splits:1
+2023-09-25 14:17:36,306 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1695617981749_0002
+2023-09-25 14:17:36,306 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2023-09-25 14:17:36,522 INFO conf.Configuration: resource-types.xml not found
+2023-09-25 14:17:36,523 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2023-09-25 14:17:37,062 INFO impl.YarnClientImpl: Submitted application application_1695617981749_0002
+2023-09-25 14:17:37,109 INFO mapreduce.Job: The url to track the job: http://LAPTOP-DJD8S3GA.:8088/proxy/application_1695617981749_0002/
+2023-09-25 14:17:37,109 INFO mapreduce.Job: Running job: job_1695617981749_0002
+2023-09-25 14:17:46,324 INFO mapreduce.Job: Job job_1695617981749_0002 running in uber mode : false
+2023-09-25 14:17:46,332 INFO mapreduce.Job:  map 0% reduce 0%
+2023-09-25 14:18:01,289 INFO mapreduce.Job:  map 100% reduce 0%
+^Chadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:22:14,899 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:22:14,942 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:22:15,040 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:22:15,040 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:22:15,573 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:22:15,653 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:22:15,662 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/aaabbbb313c67236acc70dd3753e6a41/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:22:17,441 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/aaabbbb313c67236acc70dd3753e6a41/process.jar
+2023-09-25 14:22:17,455 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:22:17,455 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:22:17,455 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:22:17,455 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:22:17,460 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:22:17,461 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:22:17,719 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:22:18,132 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:22:18,226 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:22:18,503 ERROR tool.ImportTool: Import failed: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/user/hadoop/process already exists
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:164)
+        at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:277)
+        at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+        at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1589)
+        at org.apache.sqoop.mapreduce.ImportJobBase.doSubmitJob(ImportJobBase.java:200)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:173)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:270)
+        at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:692)
+        at org.apache.sqoop.manager.MySQLManager.importTable(MySQLManager.java:127)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:520)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:36:41,039 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:36:41,061 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:36:41,122 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:36:41,122 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:36:41,650 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:36:41,756 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:36:41,761 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/d0e10a352d4a5bef95212e83bf814ada/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:36:43,090 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/d0e10a352d4a5bef95212e83bf814ada/process.jar
+2023-09-25 14:36:43,108 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:36:43,108 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:36:43,108 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:36:43,108 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:36:43,114 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:36:43,115 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:36:43,462 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:36:43,920 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:36:44,024 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:36:44,362 ERROR tool.ImportTool: Import failed: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/user/hadoop/process already exists
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:164)
+        at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:277)
+        at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+        at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1589)
+        at org.apache.sqoop.mapreduce.ImportJobBase.doSubmitJob(ImportJobBase.java:200)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:173)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:270)
+        at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:692)
+        at org.apache.sqoop.manager.MySQLManager.importTable(MySQLManager.java:127)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:520)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:39:22,999 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:39:23,018 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:39:23,085 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:39:23,085 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:39:23,415 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:39:23,457 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:39:23,464 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/e2da857a48fad2f23c642db1df961cba/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:39:24,202 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/e2da857a48fad2f23c642db1df961cba/process.jar
+2023-09-25 14:39:24,215 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:39:24,215 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:39:24,215 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:39:24,215 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:39:24,221 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:39:24,222 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:39:24,444 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:39:24,775 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:39:24,852 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:39:25,099 ERROR tool.ImportTool: Import failed: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/user/hadoop/process already exists
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:164)
+        at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:277)
+        at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+        at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1589)
+        at org.apache.sqoop.mapreduce.ImportJobBase.doSubmitJob(ImportJobBase.java:200)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:173)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:270)
+        at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:692)
+        at org.apache.sqoop.manager.MySQLManager.importTable(MySQLManager.java:127)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:520)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:42:31,134 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:42:31,153 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:42:31,213 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:42:31,213 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:42:31,561 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:42:31,589 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:42:31,595 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/3449e45194e70f238bc406bd15d4fa7a/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:42:32,322 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/3449e45194e70f238bc406bd15d4fa7a/process.jar
+2023-09-25 14:42:32,332 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:42:32,332 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:42:32,332 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:42:32,332 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:42:32,345 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:42:32,346 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:42:32,589 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:42:32,922 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:42:32,994 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:42:33,247 ERROR tool.ImportTool: Import failed: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/user/hadoop/process already exists
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:164)
+        at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:277)
+        at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+        at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1589)
+        at org.apache.sqoop.mapreduce.ImportJobBase.doSubmitJob(ImportJobBase.java:200)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:173)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:270)
+        at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:692)
+        at org.apache.sqoop.manager.MySQLManager.importTable(MySQLManager.java:127)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:520)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table processs --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:44:10,676 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:44:10,697 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:44:10,751 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:44:10,751 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:44:11,062 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `processs` AS t LIMIT 1
+2023-09-25 14:44:11,092 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `processs` AS t LIMIT 1
+2023-09-25 14:44:11,099 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/2a3247b8c30ca358ae92684ba31e69ae/processs.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:44:11,786 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/2a3247b8c30ca358ae92684ba31e69ae/processs.jar
+2023-09-25 14:44:11,796 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:44:11,796 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:44:11,796 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:44:11,796 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:44:11,803 INFO mapreduce.ImportJobBase: Beginning import of processs
+2023-09-25 14:44:11,805 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:44:12,046 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:44:12,368 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:44:12,458 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:44:13,750 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:14,752 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:15,753 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:16,755 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:17,756 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:18,761 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:19,763 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:20,764 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:21,765 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:22,770 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:23,777 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:24,778 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:25,781 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:26,782 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:27,783 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:28,784 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:29,785 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:30,787 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:31,788 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:32,790 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:44:32,791 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getNewApplication over null after 1 failover attempts. Trying to failover after sleeping for 26933ms.
+2023-09-25 14:45:00,727 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:01,728 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:02,729 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:03,730 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:04,732 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:05,733 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:06,734 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:07,735 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:08,738 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:09,740 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:09,740 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getNewApplication over null after 2 failover attempts. Trying to failover after sleeping for 44064ms.
+^Chadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table processs --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:45:28,819 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:45:28,840 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:45:28,895 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:45:28,895 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:45:29,216 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `processs` AS t LIMIT 1
+2023-09-25 14:45:29,251 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `processs` AS t LIMIT 1
+2023-09-25 14:45:29,257 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/701d3d90f3687c1bba28152c3ea92f4c/processs.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:45:29,962 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/701d3d90f3687c1bba28152c3ea92f4c/processs.jar
+2023-09-25 14:45:29,972 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:45:29,973 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:45:29,973 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:45:29,973 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:45:29,978 INFO mapreduce.ImportJobBase: Beginning import of processs
+2023-09-25 14:45:29,979 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:45:30,231 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:45:30,548 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:45:30,631 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:45:31,906 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:32,907 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:33,909 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:45:34,909 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+^Chadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:48:25,123 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:48:25,143 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:48:25,200 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:48:25,200 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:48:25,528 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:48:25,560 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:48:25,566 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/7b2ed875b483611445b440fc07dfc486/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:48:26,294 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/7b2ed875b483611445b440fc07dfc486/process.jar
+2023-09-25 14:48:26,305 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:48:26,305 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:48:26,305 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:48:26,305 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:48:26,312 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:48:26,313 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:48:26,540 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:48:26,853 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:48:26,915 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:48:27,169 ERROR tool.ImportTool: Import failed: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/user/hadoop/process already exists
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:164)
+        at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:277)
+        at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+        at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1589)
+        at org.apache.sqoop.mapreduce.ImportJobBase.doSubmitJob(ImportJobBase.java:200)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:173)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:270)
+        at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:692)
+        at org.apache.sqoop.manager.MySQLManager.importTable(MySQLManager.java:127)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:520)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:50:58,171 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:50:58,192 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:50:58,249 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:50:58,249 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:50:58,566 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:50:58,601 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:50:58,608 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/a1711a5809d5ea051e89d0e466855d8c/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:50:59,304 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/a1711a5809d5ea051e89d0e466855d8c/process.jar
+2023-09-25 14:50:59,315 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:50:59,315 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:50:59,315 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:50:59,315 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:50:59,322 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:50:59,326 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:50:59,600 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:50:59,926 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:51:00,003 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:51:01,291 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:02,295 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:03,296 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:04,336 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:05,343 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:06,424 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:07,427 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:08,449 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:09,499 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:10,515 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:11,522 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:12,561 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:13,600 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:14,636 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:15,661 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:16,672 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:17,713 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:18,764 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:19,818 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:20,859 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2023-09-25 14:51:20,861 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getNewApplication over null after 1 failover attempts. Trying to failover after sleeping for 27546ms.
+^Chadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 14:54:52,249 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 14:54:52,274 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 14:54:52,343 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 14:54:52,343 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 14:54:52,900 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:54:53,026 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 14:54:53,033 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/87a4d1f789fb18f67e0c0105f2b441ef/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 14:54:54,464 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/87a4d1f789fb18f67e0c0105f2b441ef/process.jar
+2023-09-25 14:54:54,475 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 14:54:54,475 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 14:54:54,475 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 14:54:54,475 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 14:54:54,482 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 14:54:54,484 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 14:54:54,724 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 14:54:55,157 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 14:54:55,247 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 14:54:56,058 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695633871655_0001
+2023-09-25 14:55:10,143 INFO db.DBInputFormat: Using read commited transaction isolation
+2023-09-25 14:55:11,002 INFO mapreduce.JobSubmitter: number of splits:1
+2023-09-25 14:55:11,205 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1695633871655_0001
+2023-09-25 14:55:11,206 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2023-09-25 14:55:11,401 INFO conf.Configuration: resource-types.xml not found
+2023-09-25 14:55:11,402 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2023-09-25 14:55:11,846 INFO impl.YarnClientImpl: Submitted application application_1695633871655_0001
+2023-09-25 14:55:11,882 INFO mapreduce.Job: The url to track the job: http://LAPTOP-DJD8S3GA.:8088/proxy/application_1695633871655_0001/
+2023-09-25 14:55:11,883 INFO mapreduce.Job: Running job: job_1695633871655_0001
+2023-09-25 14:55:22,164 INFO mapreduce.Job: Job job_1695633871655_0001 running in uber mode : false
+2023-09-25 14:55:22,174 INFO mapreduce.Job:  map 0% reduce 0%
+2023-09-25 14:55:28,275 INFO mapreduce.Job:  map 100% reduce 0%
+2023-09-25 14:55:28,283 INFO mapreduce.Job: Job job_1695633871655_0001 completed successfully
+2023-09-25 14:55:28,482 INFO mapreduce.Job: Counters: 33
+        File System Counters
+                FILE: Number of bytes read=0
+                FILE: Number of bytes written=285654
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=87
+                HDFS: Number of bytes written=60939
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+                HDFS: Number of bytes read erasure-coded=0
+        Job Counters
+                Launched map tasks=1
+                Other local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=3468
+                Total time spent by all reduces in occupied slots (ms)=0
+                Total time spent by all map tasks (ms)=3468
+                Total vcore-milliseconds taken by all map tasks=3468
+                Total megabyte-milliseconds taken by all map tasks=3551232
+        Map-Reduce Framework
+                Map input records=2128
+                Map output records=2128
+                Input split bytes=87
+                Spilled Records=0
+                Failed Shuffles=0
+                Merged Map outputs=0
+                GC time elapsed (ms)=194
+                CPU time spent (ms)=1890
+                Physical memory (bytes) snapshot=275812352
+                Virtual memory (bytes) snapshot=2578714624
+                Total committed heap usage (bytes)=169869312
+                Peak Map Physical memory (bytes)=275812352
+                Peak Map Virtual memory (bytes)=2578714624
+        File Input Format Counters
+                Bytes Read=0
+        File Output Format Counters
+                Bytes Written=60939
+2023-09-25 14:55:28,491 INFO mapreduce.ImportJobBase: Transferred 59.5107 KB in 33.322 seconds (1.7859 KB/sec)
+2023-09-25 14:55:28,494 INFO mapreduce.ImportJobBase: Retrieved 2128 records.
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 15:09:51,856 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 15:09:51,878 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 15:09:51,946 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 15:09:51,947 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 15:09:52,436 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 15:09:52,557 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 15:09:52,565 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/adb3c1dab89336dddd87780f4e03ef4f/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 15:09:54,505 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/adb3c1dab89336dddd87780f4e03ef4f/process.jar
+2023-09-25 15:09:54,516 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 15:09:54,516 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 15:09:54,516 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 15:09:54,516 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 15:09:54,521 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 15:09:54,521 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 15:09:54,747 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 15:09:55,118 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 15:09:55,205 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 15:09:55,751 INFO mapreduce.JobSubmitter: Cleaning up the staging area /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695634775354_0001
+2023-09-25 15:09:55,760 ERROR tool.ImportTool: Import failed: org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot delete /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695634775354_0001. Name node is in safe mode.
+The reported blocks 54 has reached the threshold 0.9990 of total blocks 54. The minimum number of live datanodes is not required. In safe mode extension. Safe mode will be turned off automatically in 1 seconds. NamenodeHostName:localhost
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.newSafemodeException(FSNamesystem.java:1577)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1564)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.delete(FSNamesystem.java:3265)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.delete(NameNodeRpcServer.java:1128)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.delete(ClientNamenodeProtocolServerSideTranslatorPB.java:725)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:604)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:572)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:556)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1093)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1043)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:971)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2976)
+
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+        at org.apache.hadoop.ipc.RemoteException.instantiateException(RemoteException.java:121)
+        at org.apache.hadoop.ipc.RemoteException.unwrapRemoteException(RemoteException.java:88)
+        at org.apache.hadoop.hdfs.DFSClient.delete(DFSClient.java:1664)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$19.doCall(DistributedFileSystem.java:992)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$19.doCall(DistributedFileSystem.java:989)
+        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+        at org.apache.hadoop.hdfs.DistributedFileSystem.delete(DistributedFileSystem.java:999)
+        at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:262)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+        at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+        at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1589)
+        at org.apache.sqoop.mapreduce.ImportJobBase.doSubmitJob(ImportJobBase.java:200)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:173)
+        at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:270)
+        at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:692)
+        at org.apache.sqoop.manager.MySQLManager.importTable(MySQLManager.java:127)
+        at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:520)
+        at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:628)
+        at org.apache.sqoop.Sqoop.run(Sqoop.java:147)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+        at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:183)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:234)
+        at org.apache.sqoop.Sqoop.runTool(Sqoop.java:243)
+        at org.apache.sqoop.Sqoop.main(Sqoop.java:252)
+Caused by: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot delete /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695634775354_0001. Name node is in safe mode.
+The reported blocks 54 has reached the threshold 0.9990 of total blocks 54. The minimum number of live datanodes is not required. In safe mode extension. Safe mode will be turned off automatically in 1 seconds. NamenodeHostName:localhost
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.newSafemodeException(FSNamesystem.java:1577)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1564)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.delete(FSNamesystem.java:3265)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.delete(NameNodeRpcServer.java:1128)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.delete(ClientNamenodeProtocolServerSideTranslatorPB.java:725)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:604)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:572)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:556)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1093)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1043)
+        at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:971)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2976)
+
+        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1612)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1558)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:242)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine2$Invoker.invoke(ProtobufRpcEngine2.java:129)
+        at com.sun.proxy.$Proxy9.delete(Unknown Source)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.delete(ClientNamenodeProtocolTranslatorPB.java:655)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+        at com.sun.proxy.$Proxy10.delete(Unknown Source)
+        at org.apache.hadoop.hdfs.DFSClient.delete(DFSClient.java:1662)
+        ... 25 more
+
+hadoop@LAPTOP-DJD8S3GA:~$ sqoop import --connect jdbc:mysql://localhost/airbnb --username root --password password --table process --m 1;
+Warning: /home/hadoop/sqoop/../hbase does not exist! HBase imports will fail.
+Please set $HBASE_HOME to the root of your HBase installation.
+Warning: /home/hadoop/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /home/hadoop/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+Warning: /home/hadoop/sqoop/../zookeeper does not exist! Accumulo imports will fail.
+Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
+2023-09-25 15:10:16,574 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
+2023-09-25 15:10:16,595 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+2023-09-25 15:10:16,654 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+2023-09-25 15:10:16,655 INFO tool.CodeGenTool: Beginning code generation
+2023-09-25 15:10:16,991 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 15:10:17,023 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `process` AS t LIMIT 1
+2023-09-25 15:10:17,031 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hadoop/hadoop
+Note: /tmp/sqoop-hadoop/compile/80693e9a08d69c70fc2e850bef782ccb/process.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2023-09-25 15:10:17,789 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hadoop/compile/80693e9a08d69c70fc2e850bef782ccb/process.jar
+2023-09-25 15:10:17,799 WARN manager.MySQLManager: It looks like you are importing from mysql.
+2023-09-25 15:10:17,799 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+2023-09-25 15:10:17,799 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+2023-09-25 15:10:17,799 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+2023-09-25 15:10:17,808 INFO mapreduce.ImportJobBase: Beginning import of process
+2023-09-25 15:10:17,809 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2023-09-25 15:10:18,062 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2023-09-25 15:10:18,377 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2023-09-25 15:10:18,457 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2023-09-25 15:10:18,797 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1695634775354_0002
+2023-09-25 15:10:28,912 INFO db.DBInputFormat: Using read commited transaction isolation
+2023-09-25 15:10:28,956 INFO mapreduce.JobSubmitter: number of splits:1
+2023-09-25 15:10:29,561 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1695634775354_0002
+2023-09-25 15:10:29,561 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2023-09-25 15:10:29,754 INFO conf.Configuration: resource-types.xml not found
+2023-09-25 15:10:29,755 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2023-09-25 15:10:30,208 INFO impl.YarnClientImpl: Submitted application application_1695634775354_0002
+2023-09-25 15:10:30,239 INFO mapreduce.Job: The url to track the job: http://LAPTOP-DJD8S3GA.:8088/proxy/application_1695634775354_0002/
+2023-09-25 15:10:30,240 INFO mapreduce.Job: Running job: job_1695634775354_0002
+2023-09-25 15:10:40,388 INFO mapreduce.Job: Job job_1695634775354_0002 running in uber mode : false
+2023-09-25 15:10:40,391 INFO mapreduce.Job:  map 0% reduce 0%
+2023-09-25 15:10:46,496 INFO mapreduce.Job:  map 100% reduce 0%
+2023-09-25 15:10:46,505 INFO mapreduce.Job: Job job_1695634775354_0002 completed successfully
+2023-09-25 15:10:46,721 INFO mapreduce.Job: Counters: 33
+        File System Counters
+                FILE: Number of bytes read=0
+                FILE: Number of bytes written=285654
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=87
+                HDFS: Number of bytes written=60939
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+                HDFS: Number of bytes read erasure-coded=0
+        Job Counters
+                Launched map tasks=1
+                Other local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=4017
+                Total time spent by all reduces in occupied slots (ms)=0
+                Total time spent by all map tasks (ms)=4017
+                Total vcore-milliseconds taken by all map tasks=4017
+                Total megabyte-milliseconds taken by all map tasks=4113408
+        Map-Reduce Framework
+                Map input records=2128
+                Map output records=2128
+                Input split bytes=87
+                Spilled Records=0
+                Failed Shuffles=0
+                Merged Map outputs=0
+                GC time elapsed (ms)=129
+                CPU time spent (ms)=2040
+                Physical memory (bytes) snapshot=262848512
+                Virtual memory (bytes) snapshot=2584379392
+                Total committed heap usage (bytes)=178782208
+                Peak Map Physical memory (bytes)=262848512
+                Peak Map Virtual memory (bytes)=2584379392
+        File Input Format Counters
+                Bytes Read=0
+        File Output Format Counters
+                Bytes Written=60939
+2023-09-25 15:10:46,730 INFO mapreduce.ImportJobBase: Transferred 59.5107 KB in 28.3412 seconds (2.0998 KB/sec)
+2023-09-25 15:10:46,733 INFO mapreduce.ImportJobBase: Retrieved 2128 records.
+hadoop@LAPTOP-DJD8S3GA:~$
